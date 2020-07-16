@@ -249,7 +249,7 @@
             // 
             // articulosBindingSource
             // 
-            this.articulosBindingSource.DataSource = typeof(CafeteriaUNAPEC.Modelos.Articulos);
+            //this.articulosBindingSource.DataSource = typeof(CafeteriaUNAPEC.Modelos.Articulos);
             // 
             // GestionArticulos
             // 

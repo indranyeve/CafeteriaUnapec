@@ -237,7 +237,7 @@
             // 
             // empleadoBindingSource
             // 
-            this.empleadoBindingSource.DataSource = typeof(CafeteriaUNAPEC.Modelos.Empleado);
+            //this.empleadoBindingSource.DataSource = typeof(CafeteriaUNAPEC.Modelos.Empleado);
             // 
             // Empleados
             // 

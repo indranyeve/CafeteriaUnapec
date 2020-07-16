@@ -15,3 +15,15 @@ D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\Cafeteria
 D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Empleados.resources
 D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionProveedores.resources
 D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionMarcas.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.exe.config
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.exe
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.pdb
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Empleados.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionArticulos.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionMarcas.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionProveedores.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Properties.Resources.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.exe
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.pdb
