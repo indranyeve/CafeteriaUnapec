@@ -1,0 +1,1 @@
+Cuando se crean los modelos, hay que darle ´´update-database -force´´ para actualizar la base de datos

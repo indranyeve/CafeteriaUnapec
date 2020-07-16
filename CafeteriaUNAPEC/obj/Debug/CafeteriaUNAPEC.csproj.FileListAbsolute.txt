@@ -1,0 +1,17 @@
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.csproj.GenerateResource.cache
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.exe.config
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.exe
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.pdb
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\bin\Debug\EntityFramework.dll
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\bin\Debug\EntityFramework.SqlServer.dll
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\bin\Debug\EntityFramework.xml
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\bin\Debug\EntityFramework.SqlServer.xml
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Properties.Resources.resources
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.csproj.CopyComplete
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.exe
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.pdb
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.csprojAssemblyReference.cache
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionArticulos.resources
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Empleados.resources
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionProveedores.resources
+D:\APEC\6TO CUATRIMESTRE\PROPIETARIA 1\CafeteriaUNAPEC\CafeteriaUNAPEC\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionMarcas.resources
