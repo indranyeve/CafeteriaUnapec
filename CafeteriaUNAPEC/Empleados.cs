@@ -13,7 +13,7 @@ namespace CafeteriaUNAPEC
 {
     public partial class Empleados : Form
     {
-        private SqlConnection dbCafeteria = new SqlConnection("Data Source=DESKTOP-3AO6C47;Initial Catalog=CafeteriaUNAPEC;Integrated Security=True");
+        private SqlConnection dbCafeteria = connection.cadenaConexion;
         public Empleados()
         {
             InitializeComponent();
@@ -231,3 +231,4 @@ namespace CafeteriaUNAPEC
 
     }
 }
+

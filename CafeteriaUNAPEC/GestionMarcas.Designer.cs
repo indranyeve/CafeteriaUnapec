@@ -153,6 +153,7 @@
             this.Controls.Add(this.CmdAnadir);
             this.Name = "GestionMarcas";
             this.Text = "GestionMarcas";
+            this.Load += new System.EventHandler(this.GestionMarcas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

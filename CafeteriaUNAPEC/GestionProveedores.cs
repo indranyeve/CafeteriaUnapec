@@ -13,7 +13,8 @@ namespace CafeteriaUNAPEC
 {
     public partial class GestionProveedores : Form
     {
-        private SqlConnection dbCafeteria = new SqlConnection("Data Source=DESKTOP-3AO6C47;Initial Catalog=CafeteriaUNAPEC;Integrated Security=True");
+        private SqlConnection dbCafeteria = connection.cadenaConexion;
+
         public GestionProveedores()
         {
             InitializeComponent();
