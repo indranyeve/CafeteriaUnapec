@@ -44,8 +44,8 @@ namespace CafeteriaUNAPEC
                 while (Lector.Read())
                 {
                     dataGridView1.Rows.Add(Lector["idArticulo"].ToString(), Lector["Description"].ToString(),
-                        Lector["Marca"].ToString(), Lector["Costo"].ToString(), Lector["Proveedor"].ToString(),
-                        Lector["Existencia"].ToString());
+                        Lector["Costo"].ToString(), Lector["Existencia"].ToString(), Lector["idMarca"].ToString(), 
+                        Lector["Proveedor"].ToString());
 
                 }
                 dbCafeteria.Close();

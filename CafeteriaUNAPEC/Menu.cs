@@ -51,5 +51,39 @@ namespace CafeteriaUNAPEC
             Empleados form = new Empleados();
             form.Show();
         }
+
+        private void btnConsultaArticulos_Click(object sender, EventArgs e)
+        {
+            //Llamando al CRUD de Articulos
+            GestionArticulos form = new GestionArticulos();
+            form.Show();
+        }
+
+        private void btnConsultaMarcas_Click(object sender, EventArgs e)
+        {
+            //Llamando al CRUD de Marcas
+            GestionMarcas form = new GestionMarcas();
+            form.Show();
+        }
+
+        private void btnConsultaProveedores_Click(object sender, EventArgs e)
+        {
+            //Llamando al CRUD de Proveedores
+            GestionProveedores form = new GestionProveedores();
+            form.Show();
+        }
+
+        private void btnConsultaTiposDeEmpleados_Click(object sender, EventArgs e)
+        {
+            //Llamando al CRUD de Tipos de Empleados
+
+        }
+
+        private void btnConsultaUsuarios_Click(object sender, EventArgs e)
+        {
+            //Llamando al CRUD de Usuarios
+            Usuarios form = new Usuarios();
+            form.Show();
+        }
     }
 }

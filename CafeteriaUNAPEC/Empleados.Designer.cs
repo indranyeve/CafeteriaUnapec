@@ -40,15 +40,17 @@
             this.CmdAnadir = new System.Windows.Forms.Button();
             this.CmdLimpiar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.CmdEditar = new System.Windows.Forms.Button();
+            this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoDeUsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TandaLabor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PorcientoComision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.CmdEditar = new System.Windows.Forms.Button();
-            this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -152,6 +154,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idEmpleado,
+            this.TipoDeUsuarioID,
+            this.Estado,
             this.Nombre,
             this.Cedula,
             this.TandaLabor,
@@ -167,6 +171,25 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick_1);
             // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(483, 601);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(388, 22);
+            this.txtID.TabIndex = 19;
+            this.txtID.Visible = false;
+            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // CmdEditar
+            // 
+            this.CmdEditar.Location = new System.Drawing.Point(647, 499);
+            this.CmdEditar.Name = "CmdEditar";
+            this.CmdEditar.Size = new System.Drawing.Size(145, 76);
+            this.CmdEditar.TabIndex = 17;
+            this.CmdEditar.Text = "&Eliminar";
+            this.CmdEditar.UseVisualStyleBackColor = true;
+            this.CmdEditar.Click += new System.EventHandler(this.CmdEliminar);
+            // 
             // idEmpleado
             // 
             this.idEmpleado.HeaderText = "idEmpleado";
@@ -175,6 +198,24 @@
             this.idEmpleado.ReadOnly = true;
             this.idEmpleado.Visible = false;
             this.idEmpleado.Width = 125;
+            // 
+            // TipoDeUsuarioID
+            // 
+            this.TipoDeUsuarioID.HeaderText = "TipoDeUsuarioID";
+            this.TipoDeUsuarioID.MinimumWidth = 6;
+            this.TipoDeUsuarioID.Name = "TipoDeUsuarioID";
+            this.TipoDeUsuarioID.ReadOnly = true;
+            this.TipoDeUsuarioID.Visible = false;
+            this.TipoDeUsuarioID.Width = 125;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Visible = false;
+            this.Estado.Width = 125;
             // 
             // Nombre
             // 
@@ -215,29 +256,6 @@
             this.FechaIngreso.Name = "FechaIngreso";
             this.FechaIngreso.ReadOnly = true;
             this.FechaIngreso.Width = 125;
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(483, 601);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(388, 22);
-            this.txtID.TabIndex = 19;
-            this.txtID.Visible = false;
-            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // CmdEditar
-            // 
-            this.CmdEditar.Location = new System.Drawing.Point(647, 499);
-            this.CmdEditar.Name = "CmdEditar";
-            this.CmdEditar.Size = new System.Drawing.Size(145, 76);
-            this.CmdEditar.TabIndex = 17;
-            this.CmdEditar.Text = "&Eliminar";
-            this.CmdEditar.UseVisualStyleBackColor = true;
-            this.CmdEditar.Click += new System.EventHandler(this.CmdEliminar);
-            // 
-            // empleadoBindingSource
-            // 
-            //this.empleadoBindingSource.DataSource = typeof(CafeteriaUNAPEC.Modelos.Empleado);
             // 
             // Empleados
             // 
@@ -281,12 +299,14 @@
         private System.Windows.Forms.Button CmdLimpiar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Button CmdEditar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoDeUsuarioID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn TandaLabor;
         private System.Windows.Forms.DataGridViewTextBoxColumn PorcientoComision;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
-        private System.Windows.Forms.Button CmdEditar;
     }
 }
