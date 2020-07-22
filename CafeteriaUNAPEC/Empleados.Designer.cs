@@ -40,15 +40,15 @@
             this.CmdAnadir = new System.Windows.Forms.Button();
             this.CmdLimpiar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.CmdEditar = new System.Windows.Forms.Button();
+            this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TandaLabor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PorcientoComision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.CmdEditar = new System.Windows.Forms.Button();
-            this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -56,9 +56,10 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(24, 280);
+            this.labelNombre.Location = new System.Drawing.Point(18, 228);
+            this.labelNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(58, 17);
+            this.labelNombre.Size = new System.Drawing.Size(44, 13);
             this.labelNombre.TabIndex = 1;
             this.labelNombre.Text = "Nombre";
             this.labelNombre.Click += new System.EventHandler(this.labelNombre_Click);
@@ -66,9 +67,10 @@
             // labelTandaLabor
             // 
             this.labelTandaLabor.AutoSize = true;
-            this.labelTandaLabor.Location = new System.Drawing.Point(704, 329);
+            this.labelTandaLabor.Location = new System.Drawing.Point(528, 267);
+            this.labelTandaLabor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTandaLabor.Name = "labelTandaLabor";
-            this.labelTandaLabor.Size = new System.Drawing.Size(90, 17);
+            this.labelTandaLabor.Size = new System.Drawing.Size(70, 13);
             this.labelTandaLabor.TabIndex = 2;
             this.labelTandaLabor.Text = "Tanda/Labor";
             this.labelTandaLabor.Click += new System.EventHandler(this.labelTandaLabor_Click);
@@ -76,9 +78,10 @@
             // labelCedula
             // 
             this.labelCedula.AutoSize = true;
-            this.labelCedula.Location = new System.Drawing.Point(24, 334);
+            this.labelCedula.Location = new System.Drawing.Point(18, 271);
+            this.labelCedula.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCedula.Name = "labelCedula";
-            this.labelCedula.Size = new System.Drawing.Size(52, 17);
+            this.labelCedula.Size = new System.Drawing.Size(40, 13);
             this.labelCedula.TabIndex = 3;
             this.labelCedula.Text = "Cédula";
             this.labelCedula.Click += new System.EventHandler(this.label3_Click);
@@ -86,50 +89,56 @@
             // labelPorcientoComision
             // 
             this.labelPorcientoComision.AutoSize = true;
-            this.labelPorcientoComision.Location = new System.Drawing.Point(704, 280);
+            this.labelPorcientoComision.Location = new System.Drawing.Point(528, 228);
+            this.labelPorcientoComision.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPorcientoComision.Name = "labelPorcientoComision";
-            this.labelPorcientoComision.Size = new System.Drawing.Size(129, 17);
+            this.labelPorcientoComision.Size = new System.Drawing.Size(99, 13);
             this.labelPorcientoComision.TabIndex = 4;
             this.labelPorcientoComision.Text = "Porciento/Comisión";
             this.labelPorcientoComision.Click += new System.EventHandler(this.labelPorcientoComision_Click);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(201, 277);
+            this.txtNombre.Location = new System.Drawing.Point(151, 225);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(388, 22);
+            this.txtNombre.Size = new System.Drawing.Size(292, 20);
             this.txtNombre.TabIndex = 7;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(201, 329);
+            this.txtCedula.Location = new System.Drawing.Point(151, 267);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(388, 22);
+            this.txtCedula.Size = new System.Drawing.Size(292, 20);
             this.txtCedula.TabIndex = 8;
             this.txtCedula.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtTandaLabor
             // 
-            this.txtTandaLabor.Location = new System.Drawing.Point(931, 324);
+            this.txtTandaLabor.Location = new System.Drawing.Point(698, 263);
+            this.txtTandaLabor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTandaLabor.Name = "txtTandaLabor";
-            this.txtTandaLabor.Size = new System.Drawing.Size(388, 22);
+            this.txtTandaLabor.Size = new System.Drawing.Size(292, 20);
             this.txtTandaLabor.TabIndex = 9;
             this.txtTandaLabor.TextChanged += new System.EventHandler(this.txtTandaLabor_TextChanged);
             // 
             // txtPorcientoComision
             // 
-            this.txtPorcientoComision.Location = new System.Drawing.Point(931, 280);
+            this.txtPorcientoComision.Location = new System.Drawing.Point(698, 228);
+            this.txtPorcientoComision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPorcientoComision.Name = "txtPorcientoComision";
-            this.txtPorcientoComision.Size = new System.Drawing.Size(388, 22);
+            this.txtPorcientoComision.Size = new System.Drawing.Size(292, 20);
             this.txtPorcientoComision.TabIndex = 10;
             this.txtPorcientoComision.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // CmdAnadir
             // 
-            this.CmdAnadir.Location = new System.Drawing.Point(432, 499);
+            this.CmdAnadir.Location = new System.Drawing.Point(324, 405);
+            this.CmdAnadir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmdAnadir.Name = "CmdAnadir";
-            this.CmdAnadir.Size = new System.Drawing.Size(145, 76);
+            this.CmdAnadir.Size = new System.Drawing.Size(109, 62);
             this.CmdAnadir.TabIndex = 14;
             this.CmdAnadir.Text = "&Guardar";
             this.CmdAnadir.UseVisualStyleBackColor = true;
@@ -137,9 +146,10 @@
             // 
             // CmdLimpiar
             // 
-            this.CmdLimpiar.Location = new System.Drawing.Point(867, 499);
+            this.CmdLimpiar.Location = new System.Drawing.Point(650, 405);
+            this.CmdLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmdLimpiar.Name = "CmdLimpiar";
-            this.CmdLimpiar.Size = new System.Drawing.Size(145, 76);
+            this.CmdLimpiar.Size = new System.Drawing.Size(109, 62);
             this.CmdLimpiar.TabIndex = 15;
             this.CmdLimpiar.Text = "&Limpiar";
             this.CmdLimpiar.UseVisualStyleBackColor = true;
@@ -151,30 +161,52 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idEmpleado,
+            this.EmpleadoID,
             this.Nombre,
             this.Cedula,
             this.TandaLabor,
             this.PorcientoComision,
             this.FechaIngreso});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 23);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 19);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1331, 199);
+            this.dataGridView1.Size = new System.Drawing.Size(998, 162);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick_1);
             // 
-            // idEmpleado
+            // txtID
             // 
-            this.idEmpleado.HeaderText = "idEmpleado";
-            this.idEmpleado.MinimumWidth = 6;
-            this.idEmpleado.Name = "idEmpleado";
-            this.idEmpleado.ReadOnly = true;
-            this.idEmpleado.Visible = false;
-            this.idEmpleado.Width = 125;
+            this.txtID.Location = new System.Drawing.Point(362, 488);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(292, 20);
+            this.txtID.TabIndex = 19;
+            this.txtID.Visible = false;
+            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // CmdEditar
+            // 
+            this.CmdEditar.Location = new System.Drawing.Point(485, 405);
+            this.CmdEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdEditar.Name = "CmdEditar";
+            this.CmdEditar.Size = new System.Drawing.Size(109, 62);
+            this.CmdEditar.TabIndex = 17;
+            this.CmdEditar.Text = "&Eliminar";
+            this.CmdEditar.UseVisualStyleBackColor = true;
+            this.CmdEditar.Click += new System.EventHandler(this.CmdEliminar);
+            // 
+            // EmpleadoID
+            // 
+            this.EmpleadoID.HeaderText = "EmpleadoID";
+            this.EmpleadoID.MinimumWidth = 6;
+            this.EmpleadoID.Name = "EmpleadoID";
+            this.EmpleadoID.ReadOnly = true;
+            this.EmpleadoID.Visible = false;
+            this.EmpleadoID.Width = 125;
             // 
             // Nombre
             // 
@@ -216,34 +248,11 @@
             this.FechaIngreso.ReadOnly = true;
             this.FechaIngreso.Width = 125;
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(483, 601);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(388, 22);
-            this.txtID.TabIndex = 19;
-            this.txtID.Visible = false;
-            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // CmdEditar
-            // 
-            this.CmdEditar.Location = new System.Drawing.Point(647, 499);
-            this.CmdEditar.Name = "CmdEditar";
-            this.CmdEditar.Size = new System.Drawing.Size(145, 76);
-            this.CmdEditar.TabIndex = 17;
-            this.CmdEditar.Text = "&Eliminar";
-            this.CmdEditar.UseVisualStyleBackColor = true;
-            this.CmdEditar.Click += new System.EventHandler(this.CmdEliminar);
-            // 
-            // empleadoBindingSource
-            // 
-            //this.empleadoBindingSource.DataSource = typeof(CafeteriaUNAPEC.Modelos.Empleado);
-            // 
             // Empleados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 625);
+            this.ClientSize = new System.Drawing.Size(1018, 508);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.CmdEditar);
             this.Controls.Add(this.dataGridView1);
@@ -257,6 +266,7 @@
             this.Controls.Add(this.labelCedula);
             this.Controls.Add(this.labelTandaLabor);
             this.Controls.Add(this.labelNombre);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Empleados";
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.Empleados_Load);
@@ -281,12 +291,12 @@
         private System.Windows.Forms.Button CmdLimpiar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEmpleado;
+        private System.Windows.Forms.Button CmdEditar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpleadoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn TandaLabor;
         private System.Windows.Forms.DataGridViewTextBoxColumn PorcientoComision;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
-        private System.Windows.Forms.Button CmdEditar;
     }
 }

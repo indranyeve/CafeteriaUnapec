@@ -11,49 +11,51 @@ using System.Windows.Forms;
 
 namespace CafeteriaUNAPEC
 {
-    public partial class GestionMarcas : Form
+    public partial class GestionCampus : Form
     {
         private SqlConnection dbCafeteria = connection.cadenaConexion;
-
-        public GestionMarcas()
+        public GestionCampus()
         {
             InitializeComponent();
             ActualizarTabla();
         }
 
-        public void LimpiarCampos()
+        public void LimpiarCampos() 
         {
-            txtDescripcion.Text = "";
+            txtID.Text = "";
+            txtDescription.Text = "";
+            txtEstado.Text = "";
         }
 
-        public void ActualizarTabla()
+        public void ActualizarTabla() 
         {
             dataGridView1.Rows.Clear();
-            string dbString = "Select * from Marca Where Estado = 1";
+            string dbString = "Select * from Campus where estado = 1";
             SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
             dbCafeteria.Open();
-            using (SqlDataReader Lector = Consulta.ExecuteReader())
+            using (SqlDataReader Lector = Consulta.ExecuteReader()) 
             {
-                while (Lector.Read())
+                while (Lector.Read()) 
                 {
-                    dataGridView1.Rows.Add(Lector["MarcaID"].ToString(), Lector["Descripcion"].ToString(), Lector["Estado"].ToString());
+                    dataGridView1.Rows.Add(Lector["CampusID"].ToString(),Lector["Descripcion"].ToString(),Lector["Estado"].ToString());
                 }
-                dbCafeteria.Close();
             }
+            dbCafeteria.Close();
+
         }
 
-        //Evento Añadir
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (txtID.Text == "") 
             {
-                var Descripcion = txtDescripcion.Text;
+                //var ID = txtID.Text;
+                var Descripcion = txtDescription;
                 var Estado = "1";
 
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Marca values ('" + Descripcion +"', '" + Estado + "')";
+                    string dbString = "insert into Campus values('" + Descripcion + "', '" + Estado + "')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -69,12 +71,12 @@ namespace CafeteriaUNAPEC
             else
             {
                 var ID = txtID.Text;
-                var Descripcion = txtDescripcion.Text;
-
+                var Descripcion = txtDescription.Text;
+                var Estado = txtEstado.Text;
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Marca set Descripcion = '" + Descripcion + "' Where MarcaID =" + ID;
+                    string dbString = "update Campus set Descripcion = '" + Descripcion + "', Estado = '" + Estado + "' where CampusID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -87,36 +89,33 @@ namespace CafeteriaUNAPEC
                     throw;
                 }
             }
-
         }
-
-        //Limpiar Campos
-        private void LimpiarRegistros(object sender, EventArgs e)
+        private void LimpiarRegistro (object sender, EventArgs e) 
         {
             LimpiarCampos();
         }
 
-        //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtDescripcion.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtEstado.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
-        //Eliminar
         private void CmdEliminar_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (txtID.Text == "") 
             {
-                MessageBox.Show("No has seleccionado una fila para eliminar");
+                MessageBox.Show("No haz seleccionado una fila para eliminar");
             }
+
             else
             {
-                var id = txtID.Text;
+                var ID = txtID.Text;
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Marca set Estado = 0 where MarcaID =" + id;
+                    string dbString = "update Campus set Estado = 0 Where CampusID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -128,12 +127,8 @@ namespace CafeteriaUNAPEC
                     MessageBox.Show("Ha ocurrido un error al actualizar un registro");
                     throw;
                 }
+                   
             }
-        }
-
-        private void GestionMarcas_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

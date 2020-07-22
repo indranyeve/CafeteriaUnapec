@@ -51,5 +51,30 @@ namespace CafeteriaUNAPEC
             Empleados form = new Empleados();
             form.Show();
         }
+
+        private void btnAcercaDe_Click(object sender, EventArgs e)
+        {
+            AcercaDe form = new AcercaDe();
+            form.Show();
+            
+        }
+
+        private void btnConsultaTDU_Click(object sender, EventArgs e)
+        {
+            TipoDeUsuario form = new TipoDeUsuario();
+            form.Show();
+        }
+
+        private void btnConsultaMarcas_Click(object sender, EventArgs e)
+        {
+            GestionMarcas form = new GestionMarcas();
+            form.Show();
+        }
+
+        private void btnConsultaCampus_Click(object sender, EventArgs e)
+        {
+            GestionCampus form = new GestionCampus();
+            form.Show();
+        }
     }
 }

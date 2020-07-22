@@ -42,3 +42,7 @@ C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.p
 \\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.csproj.CoreCompileInputs.cache
 \\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.exe
 \\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.pdb
+\\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionCafeteria.resources
+\\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionCampus.resources
+\\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.TipoDeUsuario.resources
+\\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.AcercaDe.resources

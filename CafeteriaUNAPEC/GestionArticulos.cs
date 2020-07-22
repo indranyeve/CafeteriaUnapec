@@ -36,15 +36,15 @@ namespace CafeteriaUNAPEC
         public void ActualizarTabla()
         {
             dataGridView1.Rows.Clear();
-            string dbString = "Select * from Articulos where estado = 1";
+            string dbString = "Select * from Articulo where Estado = 1";
             SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
             dbCafeteria.Open();
             using (SqlDataReader Lector = Consulta.ExecuteReader())
             {
                 while (Lector.Read())
                 {
-                    dataGridView1.Rows.Add(Lector["idArticulo"].ToString(), Lector["Description"].ToString(),
-                        Lector["Marca"].ToString(), Lector["Costo"].ToString(), Lector["Proveedor"].ToString(),
+                    dataGridView1.Rows.Add(Lector["ArticuloID"].ToString(), Lector["Descripcion"].ToString(),
+                        Lector["MarcaID"].ToString(), Lector["Costo"].ToString(), Lector["ProveedorID"].ToString(),
                         Lector["Existencia"].ToString());
 
                 }
@@ -59,17 +59,17 @@ namespace CafeteriaUNAPEC
         {
             if (txtID.Text == "")
             {
-                var descripcion = txtDescription.Text;
-                var marca = txtMarca.Text;
-                var costo = txtCosto.Text;
-                var proveedor = txtProveedor.Text;
-                var existencia = txtExistencia.Text;
-                var estado = "1";
+                var Descripcion = txtDescription.Text;
+                var Marca = txtMarca.Text;
+                var Costo = txtCosto.Text;
+                var Proveedor = txtProveedor.Text;
+                var Existencia = txtExistencia.Text;
+                var Estado = "1";
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Articulos values('" + descripcion + "', '" + marca + "', '" + costo + "', '"
-                        + proveedor + "', '" + existencia + "', '" + estado + "')";
+                    string dbString = "insert into Articulo values('" + Descripcion + "', '" + Marca + "', '" + Costo + "', '"
+                        + Proveedor + "', '" + Existencia + "', '" + Estado + "')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -78,22 +78,22 @@ namespace CafeteriaUNAPEC
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Ha ocurrido un error al insertar un registro, por favor comunicarse con el departamento de soporte t{ecnico");
+                    MessageBox.Show("Ha ocurrido un error al insertar un registro");
                     throw;
                 }
             }
             else
             {
-                var id = txtID.Text;
-                var descripcion = txtDescription.Text;
-                var marca = txtMarca.Text;
-                var costo = txtCosto.Text;
-                var proveedor = txtProveedor.Text;
-                var existencia = txtExistencia.Text;
+                var ID = txtID.Text;
+                var Descripcion = txtDescription.Text;
+                var Marca = txtMarca.Text;
+                var Costo = txtCosto.Text;
+                var Proveedor = txtProveedor.Text;
+                var Existencia = txtExistencia.Text;
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Articulos set Description = '" + descripcion + "', Marca = '" + marca + "', Costo = '" + costo + "', Proveedor = '" + proveedor + "' where idArticulo =" + id;
+                    string dbString = "update Articulo set Descripcion = '" + Descripcion + "', MarcaID = '" + Marca + "', Costo = '" + Costo + "', ProveedorID = '" + Proveedor +"'Existencia ='" + Existencia + "' where ArticuloID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -102,7 +102,7 @@ namespace CafeteriaUNAPEC
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Ha ocurrido un error al actualizar un registro, comunicarse con el soporte tecnico");
+                    MessageBox.Show("Ha ocurrido un error al actualizar un registro");
                     throw;
                 }
             }
@@ -135,11 +135,11 @@ namespace CafeteriaUNAPEC
             }
             else
             {
-                var id = txtID.Text;
+                var ID = txtID.Text;
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Articulos set Estado = 0 Where idArticulo =" + id;
+                    string dbString = "update Articulo set Estado = 0 Where ArticuloID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -149,7 +149,7 @@ namespace CafeteriaUNAPEC
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Ha ocurrido un error al actualizar un registro, por favor comunicarse con el departamento de soporte técnico");
+                    MessageBox.Show("Ha ocurrido un error al actualizar un registro");
                     throw;
                 }
 

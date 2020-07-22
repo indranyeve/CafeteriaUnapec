@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcercaDe.Designer.cs">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="connection.cs" />
     <Compile Include="Empleados.cs">
       <SubType>Form</SubType>
@@ -61,6 +67,18 @@
     </Compile>
     <Compile Include="GestionArticulos.Designer.cs">
       <DependentUpon>GestionArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCafeteria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCafeteria.Designer.cs">
+      <DependentUpon>GestionCafeteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCampus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCampus.Designer.cs">
+      <DependentUpon>GestionCampus.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionMarcas.cs">
       <SubType>Form</SubType>
@@ -88,11 +106,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoDeUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoDeUsuario.Designer.cs">
+      <DependentUpon>TipoDeUsuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AcercaDe.resx">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Empleados.resx">
       <DependentUpon>Empleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionArticulos.resx">
       <DependentUpon>GestionArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionCafeteria.resx">
+      <DependentUpon>GestionCafeteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionCampus.resx">
+      <DependentUpon>GestionCampus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionMarcas.resx">
       <DependentUpon>GestionMarcas.cs</DependentUpon>
@@ -115,6 +148,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TipoDeUsuario.resx">
+      <DependentUpon>TipoDeUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
