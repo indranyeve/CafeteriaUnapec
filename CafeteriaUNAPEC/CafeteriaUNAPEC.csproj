@@ -80,6 +80,12 @@
     <Compile Include="GestionCampus.Designer.cs">
       <DependentUpon>GestionCampus.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionFacturacionArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionFacturacionArticulos.Designer.cs">
+      <DependentUpon>GestionFacturacionArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionCampus.resx">
       <DependentUpon>GestionCampus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionFacturacionArticulos.resx">
+      <DependentUpon>GestionFacturacionArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionMarcas.resx">
       <DependentUpon>GestionMarcas.cs</DependentUpon>

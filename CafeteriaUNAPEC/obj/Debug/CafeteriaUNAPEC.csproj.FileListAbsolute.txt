@@ -54,3 +54,4 @@ C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.L
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Menu.resources
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.MenuEmpleados.resources
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.TipoDeUsuario.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionFacturacionArticulos.resources

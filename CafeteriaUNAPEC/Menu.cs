@@ -103,7 +103,8 @@ namespace CafeteriaUNAPEC
 
         private void btnFacturaciónArticulos_Click(object sender, EventArgs e)
         {
-
+            GestionFacturacionArticulos form = new GestionFacturacionArticulos();
+            form.Show();
         }
     }
 }
