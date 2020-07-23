@@ -46,3 +46,11 @@ C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.p
 \\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionCampus.resources
 \\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.TipoDeUsuario.resources
 \\Mac\Home\Desktop\Github-Carlos\CafeteriaUnapec\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.AcercaDe.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.AcercaDe.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionCafeteria.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionCampus.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionUsuarios.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Login.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Menu.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.MenuEmpleados.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.TipoDeUsuario.resources

@@ -76,5 +76,34 @@ namespace CafeteriaUNAPEC
             GestionCampus form = new GestionCampus();
             form.Show();
         }
+
+        private void btnConsultaArticulos_Click(object sender, EventArgs e)
+        {
+            GestionArticulos form = new GestionArticulos();
+            form.Show();
+        }
+
+        private void btnConsultaProveedores_Click(object sender, EventArgs e)
+        {
+            GestionProveedores form = new GestionProveedores();
+            form.Show();
+        }
+
+        private void btnConsultaCafeterias_Click(object sender, EventArgs e)
+        {
+            GestionCafeteria form = new GestionCafeteria();
+            form.Show();
+        }
+
+        private void btnConsultaUsuarios_Click(object sender, EventArgs e)
+        {
+            GestionUsuarios form = new GestionUsuarios();
+            form.Show();
+        }
+
+        private void btnFacturaciónArticulos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

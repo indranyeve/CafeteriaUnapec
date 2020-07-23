@@ -24,7 +24,6 @@ namespace CafeteriaUNAPEC
         {
             txtID.Text = "";
             txtDescription.Text = "";
-            txtEstado.Text = "";
         }
 
         public void ActualizarTabla()
@@ -37,24 +36,29 @@ namespace CafeteriaUNAPEC
             {
                 while (Lector.Read())
                 {
-                    dataGridView1.Rows.Add(Lector["TipoDeUsuarioID"].ToString(), Lector["Descripcion"].ToString(), Lector["Estado"].ToString());
+                    dataGridView1.Rows.Add(Lector["TipoDeUsuarioID"].ToString(), Lector["Descripcion"].ToString());
                 }
                 dbCafeteria.Close();
             }
         }
 
+        //Evento Guardar
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
             if (txtID.Text == "")
             {
-                var ID = txtID.Text;
                 var Descripcion = txtDescription.Text;
                 var Estado = "1";
 
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into TipoDeUsuario values('" + Descripcion + "',Estado'" + Estado + "'where TipoDeUsuarioID =" + ID;
+                    string dbString = "insert into TipoDeUsuario values('" + Descripcion + "', '"+Estado+"')";
+                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                    Consulta.ExecuteNonQuery();
+                    dbCafeteria.Close();
+                    ActualizarTabla();
+                    LimpiarCampos();
                 }
                 catch (Exception)
                 {
@@ -66,11 +70,10 @@ namespace CafeteriaUNAPEC
             {
                 var ID = txtID.Text;
                 var Descripcion = txtDescription.Text;
-                var Estado = txtEstado.Text;
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update TipoDeUsuario set Description = '" + Descripcion + "', Estado ='" + Estado + "'Where TipoDeUsuarioID =" + ID;
+                    string dbString = "update TipoDeUsuario set Descripcion = '" + Descripcion + "' Where TipoDeUsuarioID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -84,18 +87,15 @@ namespace CafeteriaUNAPEC
                 }
             }
         }
-        private void LimpiarRegistro(object sender, EventArgs e) 
-        {
-            LimpiarCampos();
-        }
 
+        //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtEstado.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
+        //Eliminar
         private void CmdEliminar_Click(object sender, EventArgs e)
         {
             if (txtID.Text == "")
@@ -121,6 +121,12 @@ namespace CafeteriaUNAPEC
                     throw;
                 }
             }
+        }
+
+        //Evento Limpiar
+        private void LimpiarRegistro(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

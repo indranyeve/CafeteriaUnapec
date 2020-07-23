@@ -20,13 +20,14 @@ namespace CafeteriaUNAPEC
             ActualizarTabla();
         }
 
+       
+
         public void LimpiarCampos()
         {
             txtID.Text = "";
-            txtDescription.Text = "";
+            txtDescripcion.Text = "";
             txtCampus.Text = "";
             txtEncargado.Text = "";
-            txtEstado.Text = "";
         }
 
         public void ActualizarTabla()
@@ -39,25 +40,26 @@ namespace CafeteriaUNAPEC
             {
                 while (Lector.Read())
                 {
-                    dataGridView1.Rows.Add(Lector["CafeteriaID"].ToString(), Lector["Descripcion"].ToString(), Lector["CampusID"].ToString(), Lector["Encargado"].ToString(), Lector["Estado"].ToString());
+                    dataGridView1.Rows.Add(Lector["CafeteriaID"].ToString(), Lector["Descripcion"].ToString(), Lector["CampusID"].ToString(), Lector["Encargado"].ToString());
                 }
                 dbCafeteria.Close();
             }
         }
 
+        //Evento Añadir
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
             if (txtID.Text == "")
             {
-                var Descripcion = txtDescription.Text;
-                var Campus = txtCampus.Text;
-                var Encargado = txtEncargado.Text;
+                var Descripcion = txtDescripcion.Text;
+                var Campus = Convert.ToInt32(txtCampus.Text);
                 var Estado = "1";
+                var Encargado = txtEncargado.Text;
 
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Cafeteria values('" + Descripcion + "', '" + Campus + "','" + Encargado + "','" + Estado + "')";
+                    string dbString = "insert into Cafeteria values('" + Descripcion + "', '" + Campus + "','" + Estado + "','" + Encargado + "')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -73,14 +75,14 @@ namespace CafeteriaUNAPEC
             else
             {
                 var ID = txtID.Text;
-                var Descripcion = txtDescription.Text;
-                var Campus = txtCampus.Text;
+                var Descripcion = txtDescripcion.Text;
+                var Campus = Convert.ToInt32(txtCampus.Text);
                 var Encargado = txtEncargado.Text;
 
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Cafeteria set Description = '" + Descripcion + "', Campus ='" + Campus + "', Encargado ='" + Encargado + "'Where CafeteriaID =" + ID;
+                    string dbString = "update Cafeteria set Descripcion = '" + Descripcion + "', CampusID ='" + Campus + "', Encargado ='" + Encargado + "'Where CafeteriaID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -94,19 +96,8 @@ namespace CafeteriaUNAPEC
                 }
             }
         }
-        private void LimpiarRegistro(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
-        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtCampus.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtEncargado.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtEstado.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-        }
+       
+      
 
         private void CmdEliminar_Click(object sender, EventArgs e)
         {
@@ -133,6 +124,32 @@ namespace CafeteriaUNAPEC
                     throw;
                 }
             }
+        }
+
+        private void GestionCafeteria_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+
+        //Evento Recoger Datos de la Fila
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtDescripcion.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtCampus.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtEncargado.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+        }
+
+
+        private void LimpiarRegistro(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

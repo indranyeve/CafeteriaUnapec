@@ -39,18 +39,20 @@ namespace CafeteriaUNAPEC
                 while (Lector.Read())
                 {
                     dataGridView1.Rows.Add(Lector["ProveedorID"].ToString(), Lector["NombreComercial"].ToString(), Lector["RNC"].ToString(), 
-                        Lector["FechaIngreso"].ToString(), Lector["Estado"].ToString());
+                        Lector["FechaIngreso"].ToString());
                 }
                 dbCafeteria.Close();
             }
         }
 
-        //Evento Añadir
+        
         private void GestionProveedores_Load(object sender, EventArgs e)
         {
 
         }
 
+
+        //Evento Añadir
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
             if (txtID.Text == "")
@@ -63,7 +65,7 @@ namespace CafeteriaUNAPEC
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Proveedores values ('" + NombreComercial + "','" + RNC + "','" + fechaIngreso + "','" + Estado + "')";
+                    string dbString = "insert into Proveedor values ('" + NombreComercial + "','" + RNC + "','" + fechaIngreso + "','" + Estado + "')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -85,7 +87,7 @@ namespace CafeteriaUNAPEC
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Proveedor set NombreComercial = '" + NombreComercial+ "', RNC = '" + RNC + "' where idProveedor =" + ID;
+                    string dbString = "update Proveedor set NombreComercial = '" + NombreComercial+ "', RNC = '" + RNC + "' where ProveedorID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();

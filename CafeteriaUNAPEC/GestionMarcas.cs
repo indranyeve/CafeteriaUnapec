@@ -23,6 +23,7 @@ namespace CafeteriaUNAPEC
 
         public void LimpiarCampos()
         {
+            txtID.Text = "";
             txtDescripcion.Text = "";
         }
 
@@ -36,7 +37,7 @@ namespace CafeteriaUNAPEC
             {
                 while (Lector.Read())
                 {
-                    dataGridView1.Rows.Add(Lector["MarcaID"].ToString(), Lector["Descripcion"].ToString(), Lector["Estado"].ToString());
+                    dataGridView1.Rows.Add(Lector["MarcaID"].ToString(), Lector["Descripcion"].ToString());
                 }
                 dbCafeteria.Close();
             }

@@ -11,50 +11,62 @@ using System.Windows.Forms;
 
 namespace CafeteriaUNAPEC
 {
-    public partial class GestionCampus : Form
+    public partial class GestionUsuarios : Form
     {
         private SqlConnection dbCafeteria = connection.cadenaConexion;
-        public GestionCampus()
+        public GestionUsuarios()
         {
             InitializeComponent();
             ActualizarTabla();
         }
 
-        public void LimpiarCampos() 
+        private void GestionUsuarios_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void LimpiarCampos()
         {
             txtID.Text = "";
-            txtDescription.Text = "";
+            txtNombre.Text = "";
+            txtCedula.Text = "";
+            txtLimiteCredito.Text = "";
+            txtTipoDeUsuario.Text = "";
         }
 
-        public void ActualizarTabla() 
+        public void ActualizarTabla()
         {
             dataGridView1.Rows.Clear();
-            string dbString = "Select * from Campus where estado = 1";
+            string dbString = "Select * from Usuario where Estado = 1";
             SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
             dbCafeteria.Open();
-            using (SqlDataReader Lector = Consulta.ExecuteReader()) 
+            using (SqlDataReader Lector = Consulta.ExecuteReader())
             {
-                while (Lector.Read()) 
+                while (Lector.Read())
                 {
-                    dataGridView1.Rows.Add(Lector["CampusID"].ToString(),Lector["Descripcion"].ToString());
+                    dataGridView1.Rows.Add(Lector["UsuarioID"].ToString(), Lector["Nombre"].ToString(), Lector["Cedula"].ToString(), Lector["TipoDeUsuarioID"].ToString(),
+                    Lector["LimiteCredito"].ToString(), Lector["FechaRegistro"].ToString());
                 }
+                dbCafeteria.Close();
             }
-            dbCafeteria.Close();
-
         }
 
-        //Evento Guardar
+        //Evento Añadir
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "") 
+            if (txtID.Text =="")
             {
-                var Descripcion = txtDescription.Text;
+                var Nombre = txtNombre.Text;
+                var Cedula = txtCedula.Text;
+                var TipoDeUsuario = Convert.ToInt32(txtTipoDeUsuario.Text);
+                var LimiteCredito = txtLimiteCredito.Text;
+                var FechaRegistro = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
                 var Estado = "1";
 
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Campus values('" + Descripcion + "', '" + Estado + "')";
+                    string dbString = "insert into Usuario values('"+Nombre+"', '"+Cedula+"','"+ TipoDeUsuario+"', '" +LimiteCredito+"','"+FechaRegistro+"' , '"+Estado+"')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -69,12 +81,18 @@ namespace CafeteriaUNAPEC
             }
             else
             {
-                var ID = txtID.Text;
-                var Descripcion = txtDescription.Text;
+                var id = txtID.Text;
+                var Nombre = txtNombre.Text;
+                var Cedula = txtCedula.Text;
+                var TipoDeUsuario = Convert.ToInt32(txtTipoDeUsuario.Text);
+                var LimiteCredito = txtLimiteCredito.Text;
+                
+
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Campus set Descripcion = '" + Descripcion + "' where CampusID =" + ID;
+                    string dbString = "update Usuario set Nombre = '" + Nombre + "', Cedula = '" + Cedula + "', TipoDeUsuarioID ='"+ TipoDeUsuario+ "', LimiteCredito = '"+ LimiteCredito +"' where UsuarioID =" + id;
+
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -89,55 +107,52 @@ namespace CafeteriaUNAPEC
             }
         }
 
-        
-
-        //Eliminar
-        private void CmdEliminar_Click(object sender, EventArgs e)
-        {
-            if (txtID.Text == "") 
-            {
-                MessageBox.Show("No haz seleccionado una fila para eliminar");
-            }
-
-            else
-            {
-                var ID = txtID.Text;
-                try
-                {
-                    dbCafeteria.Open();
-                    string dbString = "update Campus set Estado = 0 Where CampusID =" + ID;
-                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-                    Consulta.ExecuteNonQuery();
-                    dbCafeteria.Close();
-                    ActualizarTabla();
-                    LimpiarCampos();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Ha ocurrido un error al actualizar un registro");
-                    throw;
-                }
-                   
-            }
-        }
-
-        private void GestionCampus_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        //Evento Limpiar
-        private void LimpiarRegistros(object sender, EventArgs e)
+        //Limpiar Campos
+        private void CmdLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
 
+       
+
+        //Eliminar
+        private void CmdEliminar_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text == "")
+            {
+                MessageBox.Show("No haz seleccionado una fila para eliminar");
+            }
+            else
+            {
+                var id = txtID.Text;
+
+                try
+                {
+                    dbCafeteria.Open();
+                    string dbString = "update Usuario set Estado = 0 Where UsuarioID =" + id;
+                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                    Consulta.ExecuteNonQuery();
+                    dbCafeteria.Close();
+                    ActualizarTabla();
+                    LimpiarCampos();
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ha ocurrido un error al actualizar un registro");
+                    throw;
+                }
+            }
+        }
 
         //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtNombre.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtCedula.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtLimiteCredito.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtTipoDeUsuario.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
     }
 }

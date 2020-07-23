@@ -43,8 +43,8 @@ namespace CafeteriaUNAPEC
             {
                 while (Lector.Read())
                 {
-                    dataGridView1.Rows.Add(Lector["ArticuloID"].ToString(), Lector["Descripcion"].ToString(),
-                        Lector["MarcaID"].ToString(), Lector["Costo"].ToString(), Lector["ProveedorID"].ToString(),
+                    dataGridView1.Rows.Add(Lector["ArticuloID"].ToString(), Lector["Description"].ToString(),
+                        Lector["Costo"].ToString(), Lector["ProveedorID"].ToString(), Lector["MarcaID"].ToString(),
                         Lector["Existencia"].ToString());
 
                 }
@@ -60,16 +60,16 @@ namespace CafeteriaUNAPEC
             if (txtID.Text == "")
             {
                 var Descripcion = txtDescription.Text;
-                var Marca = txtMarca.Text;
                 var Costo = txtCosto.Text;
-                var Proveedor = txtProveedor.Text;
+                var Proveedor = Convert.ToInt32(txtProveedor.Text);
+                var Marca = Convert.ToInt32(txtMarca.Text);
                 var Existencia = txtExistencia.Text;
                 var Estado = "1";
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Articulo values('" + Descripcion + "', '" + Marca + "', '" + Costo + "', '"
-                        + Proveedor + "', '" + Existencia + "', '" + Estado + "')";
+                    string dbString = "insert into Articulo values('" + Descripcion + "', '" + Costo + "', '" + Proveedor + "','"+ Marca + "', '" 
+                        + Existencia + "', '" + Estado + "')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -86,14 +86,14 @@ namespace CafeteriaUNAPEC
             {
                 var ID = txtID.Text;
                 var Descripcion = txtDescription.Text;
-                var Marca = txtMarca.Text;
                 var Costo = txtCosto.Text;
                 var Proveedor = txtProveedor.Text;
+                var Marca = txtMarca.Text;
                 var Existencia = txtExistencia.Text;
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Articulo set Descripcion = '" + Descripcion + "', MarcaID = '" + Marca + "', Costo = '" + Costo + "', ProveedorID = '" + Proveedor +"'Existencia ='" + Existencia + "' where ArticuloID =" + ID;
+                    string dbString = "update Articulo set Description = '" + Descripcion + "', Costo = '" + Costo + "', ProveedorID = '" + Proveedor + "', MarcaID = '" + Marca + "', Existencia ='" + Existencia + "' where ArticuloID =" + ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -120,9 +120,9 @@ namespace CafeteriaUNAPEC
         {
             txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtMarca.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtCosto.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtProveedor.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtCosto.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtProveedor.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtMarca.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtExistencia.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 

@@ -39,7 +39,7 @@ namespace CafeteriaUNAPEC
                 while (Lector.Read())
                 {
                     dataGridView1.Rows.Add(Lector["EmpleadoID"].ToString(), Lector["Nombre"].ToString(),
-                        Lector["Cedula"].ToString(), Lector["TandaLabor"].ToString(), Lector["PorcientoComision"].ToString(),
+                        Lector["Cedula"].ToString(), Lector["TandaLabor"].ToString(), Lector["PorcentajeComision"].ToString(),
                         Lector["FechaIngreso"].ToString());
 
                 }
@@ -55,14 +55,14 @@ namespace CafeteriaUNAPEC
                 var Nombre = txtNombre.Text;
                 var Cedula = txtCedula.Text;
                 var TandaLabor = txtTandaLabor.Text;
-                var PorcientoComision = txtPorcientoComision.Text;
+                var PorcientajeComision = Convert.ToInt32(txtPorcientoComision.Text);
                 string FechaIngreso = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
                 var Estado = "1";
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Empleadoes values('" + Nombre + "', '" + Cedula + "', '" + TandaLabor + "', '"
-                        + PorcientoComision + "', '" + FechaIngreso + "', '" + Estado + "')";
+                    string dbString = "insert into Empleado values('" + Nombre + "', '" + Cedula + "', '" + TandaLabor + "', '"
+                        + PorcientajeComision + "', '" + FechaIngreso + "', '" + Estado + "')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -72,7 +72,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    
+                    throw;
                 }
             }
             else
@@ -81,12 +81,11 @@ namespace CafeteriaUNAPEC
                 var Nombre = txtNombre.Text;
                 var Cedula = txtCedula.Text;
                 var TandaLabor = txtTandaLabor.Text;
-                var PorcientoComision = txtPorcientoComision.Text;
+                var PorcientajeComision = Convert.ToInt32(txtPorcientoComision.Text);
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "update Empleadoes set Nombre = '"+Nombre+"', Cedula = '"+Cedula+"', TandaLabor = '"+TandaLabor+"', " +
-                        "PorcientoComision = '"+PorcientoComision+"' where EmpleadoID ="+ID;
+                    string dbString = "update Empleado set Nombre = '"+Nombre+"', Cedula = '"+Cedula+"', TandaLabor = '"+TandaLabor+ "',  PorcentajeComision = '" + PorcientajeComision + "' where EmpleadoID ="+ID;
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -96,7 +95,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al actualizar un registro");
-                    
+                    throw;
                 }
             }
 
@@ -114,8 +113,9 @@ namespace CafeteriaUNAPEC
             txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtNombre.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtCedula.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtPorcientoComision.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtTandaLabor.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtPorcientoComision.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            
         }
 
         //Eliminar
