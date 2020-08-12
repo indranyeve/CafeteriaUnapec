@@ -38,7 +38,6 @@ namespace CafeteriaUNAPEC
                 {
                     dataGridView1.Rows.Add(Lector["MarcaID"].ToString(), Lector["Descripcion"].ToString(), Lector["Estado"].ToString());
                 }
-                dbCafeteria.Close();
             }
         }
 
@@ -63,7 +62,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    
                 }
             }
             else
@@ -84,7 +83,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al actualizar un registro");
-                    throw;
+                    
                 }
             }
 

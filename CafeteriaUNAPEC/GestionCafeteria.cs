@@ -67,7 +67,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    
                 }
             }
             else
@@ -90,7 +90,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al actualizar un registro");
-                    throw;
+                    
                 }
             }
         }
@@ -130,7 +130,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al actualizar un registro");
-                    throw;
+                   
                 }
             }
         }

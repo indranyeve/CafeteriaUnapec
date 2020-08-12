@@ -49,13 +49,13 @@ namespace CafeteriaUNAPEC
             if (txtID.Text == "") 
             {
                 //var ID = txtID.Text;
-                var Descripcion = txtDescription;
+                var Descripcion = txtDescription.Text;
                 var Estado = "1";
-
+                string dbString = "insert into Campus values('" + Descripcion + "', '" + Estado + "')";
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Campus values('" + Descripcion + "', '" + Estado + "')";
+                    
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -65,6 +65,7 @@ namespace CafeteriaUNAPEC
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error al insertar un registro");
+                    MessageBox.Show(dbString);
                     throw;
                 }
             }
@@ -107,6 +108,7 @@ namespace CafeteriaUNAPEC
             if (txtID.Text == "") 
             {
                 MessageBox.Show("No haz seleccionado una fila para eliminar");
+               
             }
 
             else
