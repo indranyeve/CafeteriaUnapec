@@ -40,9 +40,6 @@
             this.CmdAnadir = new System.Windows.Forms.Button();
             this.CmdLimpiar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.CmdEditar = new System.Windows.Forms.Button();
-            this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +47,9 @@
             this.PorcentajeComision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.CmdEditar = new System.Windows.Forms.Button();
+            this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(24, 281);
+            this.labelNombre.Location = new System.Drawing.Point(21, 322);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(58, 17);
             this.labelNombre.TabIndex = 1;
@@ -67,7 +67,7 @@
             // labelTandaLabor
             // 
             this.labelTandaLabor.AutoSize = true;
-            this.labelTandaLabor.Location = new System.Drawing.Point(704, 329);
+            this.labelTandaLabor.Location = new System.Drawing.Point(701, 370);
             this.labelTandaLabor.Name = "labelTandaLabor";
             this.labelTandaLabor.Size = new System.Drawing.Size(90, 17);
             this.labelTandaLabor.TabIndex = 2;
@@ -77,7 +77,7 @@
             // labelCedula
             // 
             this.labelCedula.AutoSize = true;
-            this.labelCedula.Location = new System.Drawing.Point(24, 334);
+            this.labelCedula.Location = new System.Drawing.Point(21, 375);
             this.labelCedula.Name = "labelCedula";
             this.labelCedula.Size = new System.Drawing.Size(52, 17);
             this.labelCedula.TabIndex = 3;
@@ -87,7 +87,7 @@
             // labelPorcientoComision
             // 
             this.labelPorcientoComision.AutoSize = true;
-            this.labelPorcientoComision.Location = new System.Drawing.Point(704, 281);
+            this.labelPorcientoComision.Location = new System.Drawing.Point(701, 322);
             this.labelPorcientoComision.Name = "labelPorcientoComision";
             this.labelPorcientoComision.Size = new System.Drawing.Size(129, 17);
             this.labelPorcientoComision.TabIndex = 4;
@@ -96,7 +96,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(201, 277);
+            this.txtNombre.Location = new System.Drawing.Point(198, 318);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(388, 22);
@@ -105,7 +105,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(201, 329);
+            this.txtCedula.Location = new System.Drawing.Point(198, 370);
             this.txtCedula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(388, 22);
@@ -114,7 +114,7 @@
             // 
             // txtTandaLabor
             // 
-            this.txtTandaLabor.Location = new System.Drawing.Point(931, 324);
+            this.txtTandaLabor.Location = new System.Drawing.Point(928, 365);
             this.txtTandaLabor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTandaLabor.Name = "txtTandaLabor";
             this.txtTandaLabor.Size = new System.Drawing.Size(388, 22);
@@ -123,7 +123,7 @@
             // 
             // txtPorcientoComision
             // 
-            this.txtPorcientoComision.Location = new System.Drawing.Point(931, 281);
+            this.txtPorcientoComision.Location = new System.Drawing.Point(928, 322);
             this.txtPorcientoComision.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPorcientoComision.Name = "txtPorcientoComision";
             this.txtPorcientoComision.Size = new System.Drawing.Size(388, 22);
@@ -132,7 +132,7 @@
             // 
             // CmdAnadir
             // 
-            this.CmdAnadir.Location = new System.Drawing.Point(432, 498);
+            this.CmdAnadir.Location = new System.Drawing.Point(430, 464);
             this.CmdAnadir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdAnadir.Name = "CmdAnadir";
             this.CmdAnadir.Size = new System.Drawing.Size(145, 76);
@@ -143,7 +143,7 @@
             // 
             // CmdLimpiar
             // 
-            this.CmdLimpiar.Location = new System.Drawing.Point(867, 498);
+            this.CmdLimpiar.Location = new System.Drawing.Point(865, 464);
             this.CmdLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdLimpiar.Name = "CmdLimpiar";
             this.CmdLimpiar.Size = new System.Drawing.Size(145, 76);
@@ -165,7 +165,7 @@
             this.PorcentajeComision,
             this.FechaIngreso,
             this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 23);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 64);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -175,27 +175,6 @@
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick_1);
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(483, 601);
-            this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(388, 22);
-            this.txtID.TabIndex = 19;
-            this.txtID.Visible = false;
-            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // CmdEditar
-            // 
-            this.CmdEditar.Location = new System.Drawing.Point(647, 498);
-            this.CmdEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CmdEditar.Name = "CmdEditar";
-            this.CmdEditar.Size = new System.Drawing.Size(145, 76);
-            this.CmdEditar.TabIndex = 17;
-            this.CmdEditar.Text = "&Eliminar";
-            this.CmdEditar.UseVisualStyleBackColor = true;
-            this.CmdEditar.Click += new System.EventHandler(this.CmdEliminar);
             // 
             // EmpleadoID
             // 
@@ -255,6 +234,27 @@
             this.Estado.Visible = false;
             this.Estado.Width = 125;
             // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(481, 567);
+            this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(388, 22);
+            this.txtID.TabIndex = 19;
+            this.txtID.Visible = false;
+            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // CmdEditar
+            // 
+            this.CmdEditar.Location = new System.Drawing.Point(645, 464);
+            this.CmdEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CmdEditar.Name = "CmdEditar";
+            this.CmdEditar.Size = new System.Drawing.Size(145, 76);
+            this.CmdEditar.TabIndex = 17;
+            this.CmdEditar.Text = "&Eliminar";
+            this.CmdEditar.UseVisualStyleBackColor = true;
+            this.CmdEditar.Click += new System.EventHandler(this.CmdEliminar);
+            // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -275,7 +275,7 @@
             this.Controls.Add(this.labelNombre);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Empleados";
-            this.Text = "Empleados";
+            this.Text = "Mantenimiento Empleados";
             this.Load += new System.EventHandler(this.Empleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadoBindingSource)).EndInit();

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -54,6 +55,12 @@
     </Compile>
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaEmpleados.Designer.cs">
+      <DependentUpon>BusquedaEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="connection.cs" />
     <Compile Include="Empleados.cs">
@@ -130,8 +137,14 @@
     <Compile Include="TipoDeUsuario.Designer.cs">
       <DependentUpon>TipoDeUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="VALICADIONES\IValidadorEntidades.cs" />
+    <Compile Include="VALICADIONES\Valicaciones_de_Campos.cs" />
+    <Compile Include="VALICADIONES\ValidacionesEntidades\ArticuloValidacion.cs" />
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaEmpleados.resx">
+      <DependentUpon>BusquedaEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Empleados.resx">
       <DependentUpon>Empleados.cs</DependentUpon>
@@ -174,6 +187,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TipoDeUsuario.resx">
       <DependentUpon>TipoDeUsuario.cs</DependentUpon>
@@ -190,6 +204,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

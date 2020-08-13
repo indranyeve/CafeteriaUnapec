@@ -34,20 +34,12 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtLimiteCredito = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.CmdEliminar = new System.Windows.Forms.Button();
             this.CmdLimpiar = new System.Windows.Forms.Button();
             this.CmdAnadir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTipoDeUsuario = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.UsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoDeUsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LimiteCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbxTipoDeUsuario = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(441, 236);
+            this.label3.Location = new System.Drawing.Point(532, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 17);
             this.label3.TabIndex = 3;
@@ -82,35 +74,26 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(105, 237);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(194, 22);
+            this.txtNombre.Size = new System.Drawing.Size(310, 22);
             this.txtNombre.TabIndex = 6;
             // 
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(105, 291);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(194, 22);
+            this.txtCedula.Size = new System.Drawing.Size(310, 22);
             this.txtCedula.TabIndex = 7;
             // 
             // txtLimiteCredito
             // 
-            this.txtLimiteCredito.Location = new System.Drawing.Point(594, 232);
+            this.txtLimiteCredito.Location = new System.Drawing.Point(686, 237);
             this.txtLimiteCredito.Name = "txtLimiteCredito";
-            this.txtLimiteCredito.Size = new System.Drawing.Size(194, 22);
+            this.txtLimiteCredito.Size = new System.Drawing.Size(310, 22);
             this.txtLimiteCredito.TabIndex = 8;
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(226, 455);
-            this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(355, 22);
-            this.txtID.TabIndex = 20;
-            this.txtID.Visible = false;
             // 
             // CmdEliminar
             // 
-            this.CmdEliminar.Location = new System.Drawing.Point(342, 358);
+            this.CmdEliminar.Location = new System.Drawing.Point(429, 376);
             this.CmdEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdEliminar.Name = "CmdEliminar";
             this.CmdEliminar.Size = new System.Drawing.Size(120, 74);
@@ -121,7 +104,7 @@
             // 
             // CmdLimpiar
             // 
-            this.CmdLimpiar.Location = new System.Drawing.Point(544, 358);
+            this.CmdLimpiar.Location = new System.Drawing.Point(631, 376);
             this.CmdLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdLimpiar.Name = "CmdLimpiar";
             this.CmdLimpiar.Size = new System.Drawing.Size(120, 74);
@@ -132,7 +115,7 @@
             // 
             // CmdAnadir
             // 
-            this.CmdAnadir.Location = new System.Drawing.Point(134, 358);
+            this.CmdAnadir.Location = new System.Drawing.Point(221, 376);
             this.CmdAnadir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdAnadir.Name = "CmdAnadir";
             this.CmdAnadir.Size = new System.Drawing.Size(123, 74);
@@ -144,32 +127,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(441, 281);
+            this.label4.Location = new System.Drawing.Point(532, 287);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 17);
             this.label4.TabIndex = 21;
             this.label4.Text = "Tipo de Usuario";
-            // 
-            // txtTipoDeUsuario
-            // 
-            this.txtTipoDeUsuario.Location = new System.Drawing.Point(594, 276);
-            this.txtTipoDeUsuario.Name = "txtTipoDeUsuario";
-            this.txtTipoDeUsuario.Size = new System.Drawing.Size(194, 22);
-            this.txtTipoDeUsuario.TabIndex = 22;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UsuarioID,
-            this.Nombre,
-            this.Cedula,
-            this.TipoDeUsuarioID,
-            this.LimiteCredito,
-            this.FechaRegistro,
-            this.Estado});
             this.dataGridView1.Location = new System.Drawing.Point(15, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -179,73 +147,23 @@
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick_1);
             // 
-            // UsuarioID
+            // cbxTipoDeUsuario
             // 
-            this.UsuarioID.HeaderText = "UsuarioID";
-            this.UsuarioID.MinimumWidth = 6;
-            this.UsuarioID.Name = "UsuarioID";
-            this.UsuarioID.ReadOnly = true;
-            this.UsuarioID.Visible = false;
-            this.UsuarioID.Width = 125;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 125;
-            // 
-            // Cedula
-            // 
-            this.Cedula.HeaderText = "Cedula";
-            this.Cedula.MinimumWidth = 6;
-            this.Cedula.Name = "Cedula";
-            this.Cedula.ReadOnly = true;
-            this.Cedula.Width = 125;
-            // 
-            // TipoDeUsuarioID
-            // 
-            this.TipoDeUsuarioID.HeaderText = "TipoDeUsuarioID";
-            this.TipoDeUsuarioID.MinimumWidth = 6;
-            this.TipoDeUsuarioID.Name = "TipoDeUsuarioID";
-            this.TipoDeUsuarioID.ReadOnly = true;
-            this.TipoDeUsuarioID.Width = 125;
-            // 
-            // LimiteCredito
-            // 
-            this.LimiteCredito.HeaderText = "LimiteCredito";
-            this.LimiteCredito.MinimumWidth = 6;
-            this.LimiteCredito.Name = "LimiteCredito";
-            this.LimiteCredito.ReadOnly = true;
-            this.LimiteCredito.Width = 125;
-            // 
-            // FechaRegistro
-            // 
-            this.FechaRegistro.HeaderText = "Fecha de Registro";
-            this.FechaRegistro.MinimumWidth = 6;
-            this.FechaRegistro.Name = "FechaRegistro";
-            this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 125;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Visible = false;
-            this.Estado.Width = 125;
+            this.cbxTipoDeUsuario.FormattingEnabled = true;
+            this.cbxTipoDeUsuario.Location = new System.Drawing.Point(686, 287);
+            this.cbxTipoDeUsuario.Name = "cbxTipoDeUsuario";
+            this.cbxTipoDeUsuario.Size = new System.Drawing.Size(310, 24);
+            this.cbxTipoDeUsuario.TabIndex = 24;
+            this.cbxTipoDeUsuario.SelectedIndexChanged += new System.EventHandler(this.cbxTipoDeUsuario_SelectedIndexChanged);
             // 
             // GestionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 500);
+            this.Controls.Add(this.cbxTipoDeUsuario);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtTipoDeUsuario);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.CmdEliminar);
             this.Controls.Add(this.CmdLimpiar);
             this.Controls.Add(this.CmdAnadir);
@@ -271,19 +189,11 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtLimiteCredito;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button CmdEliminar;
         private System.Windows.Forms.Button CmdLimpiar;
         private System.Windows.Forms.Button CmdAnadir;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTipoDeUsuario;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoDeUsuarioID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LimiteCredito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.ComboBox cbxTipoDeUsuario;
     }
 }

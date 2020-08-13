@@ -14,6 +14,11 @@ namespace CafeteriaUNAPEC
     public partial class GestionCafeteria : Form
     {
         private SqlConnection dbCafeteria = connection.cadenaConexion;
+        private SqlDataAdapter dataAdapter;
+        private DataTable dataTable;
+        private SqlCommand Command;
+        string IdCampus, IdCafeteria;
+
         public GestionCafeteria()
         {
             InitializeComponent();
@@ -24,42 +29,64 @@ namespace CafeteriaUNAPEC
 
         public void LimpiarCampos()
         {
-            txtID.Text = "";
             txtDescripcion.Text = "";
-            txtCampus.Text = "";
+            cbxCampus.SelectedIndex = 0;
             txtEncargado.Text = "";
         }
 
         public void ActualizarTabla()
         {
-            dataGridView1.Rows.Clear();
-            string dbSring = "Select * from Cafeteria where Estado = 1";
-            SqlCommand Consulta = new SqlCommand(dbSring, dbCafeteria);
-            dbCafeteria.Open();
-            using (SqlDataReader Lector = Consulta.ExecuteReader())
+            //dataGridView1.Rows.Clear();
+            string dbString = "select Cafeteria.CafeteriaID, Campus.Descripcion as 'Campus', Cafeteria.Descripcion, Cafeteria.Encargado, Cafeteria.Estado from Cafeteria inner join Campus on Cafeteria.CampusID = Campus.CampusID where Cafeteria.Estado = 1;";
+       
+
+            try
             {
-                while (Lector.Read())
-                {
-                    dataGridView1.Rows.Add(Lector["CafeteriaID"].ToString(), Lector["Descripcion"].ToString(), Lector["CampusID"].ToString(), Lector["Encargado"].ToString());
-                }
-                dbCafeteria.Close();
+                dataAdapter = new SqlDataAdapter(dbString, dbCafeteria);
+                dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
+        public void LlenarComboBoxCampus()
+        {
+            dbCafeteria.Open();
+            string query = "select CampusID, Descripcion from Campus where Estado = 1";
+            Command = new SqlCommand(query, dbCafeteria);
+            dataAdapter = new SqlDataAdapter(Command);
+            dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+
+            dbCafeteria.Close();
+
+            cbxCampus.ValueMember = "CampusID";
+            cbxCampus.DisplayMember = "Descripcion";
+            cbxCampus.DataSource = dataTable;
+        }
+                    
         //Evento Añadir
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (IdCafeteria == null)
             {
                 var Descripcion = txtDescripcion.Text;
-                var Campus = Convert.ToInt32(txtCampus.Text);
-                var Estado = "1";
+                var Campus = IdCampus;
                 var Encargado = txtEncargado.Text;
+                var Estado = "1";
+                
+                
 
                 try
                 {
                     dbCafeteria.Open();
-                    string dbString = "insert into Cafeteria values('" + Descripcion + "', '" + Campus + "','" + Estado + "','" + Encargado + "')";
+                    string dbString = "insert into Cafeteria values('"+ Descripcion +"', '" + Campus + "', '" + Estado + "', '" + Encargado + "')";
                     SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
                     Consulta.ExecuteNonQuery();
                     dbCafeteria.Close();
@@ -74,9 +101,9 @@ namespace CafeteriaUNAPEC
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IdCafeteria;
                 var Descripcion = txtDescripcion.Text;
-                var Campus = Convert.ToInt32(txtCampus.Text);
+                var Campus = IdCampus;
                 var Encargado = txtEncargado.Text;
 
                 try
@@ -101,13 +128,13 @@ namespace CafeteriaUNAPEC
 
         private void CmdEliminar_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (IdCafeteria == null)
             {
                 MessageBox.Show("No haz seleccionado una fila para eliminar");
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IdCafeteria;
                 try
                 {
                     dbCafeteria.Open();
@@ -128,7 +155,8 @@ namespace CafeteriaUNAPEC
 
         private void GestionCafeteria_Load(object sender, EventArgs e)
         {
-
+            LlenarComboBoxCampus();
+            cbxCampus.SelectedIndex = 0;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -136,20 +164,33 @@ namespace CafeteriaUNAPEC
             
         }
 
+        private void LimpiarRegistro(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void cbxCampus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IdCampus = cbxCampus.SelectedValue.ToString();
+        }
 
         //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtDescripcion.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtCampus.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            IdCafeteria = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            cbxCampus.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtDescripcion.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtEncargado.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
-
-        private void LimpiarRegistro(object sender, EventArgs e)
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
-            LimpiarCampos();
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

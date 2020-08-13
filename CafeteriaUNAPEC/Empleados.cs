@@ -151,7 +151,7 @@ namespace CafeteriaUNAPEC
         }
         private void Empleados_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -228,6 +228,11 @@ namespace CafeteriaUNAPEC
         {
 
         }
+
+           private void txtBusquedaPorNombre_KeyUp(object sender, KeyEventArgs e)
+          {
+              
+          }
 
     }
 }

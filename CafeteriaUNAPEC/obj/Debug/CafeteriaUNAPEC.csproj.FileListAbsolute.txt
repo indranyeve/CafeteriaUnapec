@@ -20,7 +20,6 @@ C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.e
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\bin\Debug\CafeteriaUNAPEC.pdb
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.csprojAssemblyReference.cache
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Empleados.resources
-C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionArticulos.resources
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionMarcas.resources
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionProveedores.resources
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.Properties.Resources.resources
@@ -55,3 +54,5 @@ C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.M
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.MenuEmpleados.resources
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.TipoDeUsuario.resources
 C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionFacturacionArticulos.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.BusquedaEmpleados.resources
+C:\Users\DELL\Desktop\ProyectoPrueba\CafeteriaUNAPEC\obj\Debug\CafeteriaUNAPEC.GestionArticulos.resources
