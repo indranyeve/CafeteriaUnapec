@@ -16,7 +16,7 @@ namespace CafeteriaUNAPEC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GestionUsuarios());
+            Application.Run(new GestionFacturacionArticulos());
         }
     }
 }

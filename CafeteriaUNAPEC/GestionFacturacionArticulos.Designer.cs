@@ -35,14 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEmpleadoID = new System.Windows.Forms.TextBox();
-            this.FacturaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArticuloID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadVendida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comentario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtArticuloID = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.txtUnidadVendida = new System.Windows.Forms.TextBox();
@@ -51,6 +43,8 @@
             this.CmdEditar = new System.Windows.Forms.Button();
             this.CmdLimpiar = new System.Windows.Forms.Button();
             this.CmdAnadir = new System.Windows.Forms.Button();
+            this.cbxEmpleado = new System.Windows.Forms.ComboBox();
+            this.cbxArticulo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,15 +53,6 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FacturaID,
-            this.EmpleadoID,
-            this.ArticuloID,
-            this.FechaVenta,
-            this.Monto,
-            this.UnidadVendida,
-            this.Comentario,
-            this.Estado});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -82,18 +67,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 273);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.Size = new System.Drawing.Size(71, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "EmpleadoID";
+            this.label1.Text = "Empleado";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(21, 328);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(55, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "ArticuloID";
+            this.label2.Text = "Articulo";
             // 
             // label3
             // 
@@ -128,72 +113,6 @@
             this.txtEmpleadoID.Name = "txtEmpleadoID";
             this.txtEmpleadoID.Size = new System.Drawing.Size(207, 22);
             this.txtEmpleadoID.TabIndex = 6;
-            // 
-            // FacturaID
-            // 
-            this.FacturaID.HeaderText = "FacturaID";
-            this.FacturaID.MinimumWidth = 6;
-            this.FacturaID.Name = "FacturaID";
-            this.FacturaID.ReadOnly = true;
-            this.FacturaID.Visible = false;
-            this.FacturaID.Width = 125;
-            // 
-            // EmpleadoID
-            // 
-            this.EmpleadoID.HeaderText = "EmpleadoID";
-            this.EmpleadoID.MinimumWidth = 6;
-            this.EmpleadoID.Name = "EmpleadoID";
-            this.EmpleadoID.ReadOnly = true;
-            this.EmpleadoID.Width = 125;
-            // 
-            // ArticuloID
-            // 
-            this.ArticuloID.HeaderText = "ArticuloID";
-            this.ArticuloID.MinimumWidth = 6;
-            this.ArticuloID.Name = "ArticuloID";
-            this.ArticuloID.ReadOnly = true;
-            this.ArticuloID.Width = 125;
-            // 
-            // FechaVenta
-            // 
-            this.FechaVenta.HeaderText = "Fecha de la Venta";
-            this.FechaVenta.MinimumWidth = 6;
-            this.FechaVenta.Name = "FechaVenta";
-            this.FechaVenta.ReadOnly = true;
-            this.FechaVenta.Width = 125;
-            // 
-            // Monto
-            // 
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
-            this.Monto.Width = 125;
-            // 
-            // UnidadVendida
-            // 
-            this.UnidadVendida.HeaderText = "Unidad Vendida";
-            this.UnidadVendida.MinimumWidth = 6;
-            this.UnidadVendida.Name = "UnidadVendida";
-            this.UnidadVendida.ReadOnly = true;
-            this.UnidadVendida.Width = 125;
-            // 
-            // Comentario
-            // 
-            this.Comentario.HeaderText = "Comentario";
-            this.Comentario.MinimumWidth = 6;
-            this.Comentario.Name = "Comentario";
-            this.Comentario.ReadOnly = true;
-            this.Comentario.Width = 125;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Visible = false;
-            this.Estado.Width = 125;
             // 
             // txtArticuloID
             // 
@@ -265,11 +184,31 @@
             this.CmdAnadir.UseVisualStyleBackColor = true;
             this.CmdAnadir.Click += new System.EventHandler(this.CmdAnadir_Click);
             // 
+            // cbxEmpleado
+            // 
+            this.cbxEmpleado.FormattingEnabled = true;
+            this.cbxEmpleado.Location = new System.Drawing.Point(144, 302);
+            this.cbxEmpleado.Name = "cbxEmpleado";
+            this.cbxEmpleado.Size = new System.Drawing.Size(207, 24);
+            this.cbxEmpleado.TabIndex = 24;
+            this.cbxEmpleado.SelectedIndexChanged += new System.EventHandler(this.cbxEmpleado_SelectedIndexChanged);
+            // 
+            // cbxArticulo
+            // 
+            this.cbxArticulo.FormattingEnabled = true;
+            this.cbxArticulo.Location = new System.Drawing.Point(144, 349);
+            this.cbxArticulo.Name = "cbxArticulo";
+            this.cbxArticulo.Size = new System.Drawing.Size(207, 24);
+            this.cbxArticulo.TabIndex = 25;
+            this.cbxArticulo.SelectedIndexChanged += new System.EventHandler(this.cbxArticulo_SelectedIndexChanged);
+            // 
             // GestionFacturacionArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 602);
+            this.Controls.Add(this.cbxArticulo);
+            this.Controls.Add(this.cbxEmpleado);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.CmdEditar);
             this.Controls.Add(this.CmdLimpiar);
@@ -297,14 +236,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FacturaID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmpleadoID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ArticuloID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadVendida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comentario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -319,5 +250,7 @@
         private System.Windows.Forms.Button CmdEditar;
         private System.Windows.Forms.Button CmdLimpiar;
         private System.Windows.Forms.Button CmdAnadir;
+        private System.Windows.Forms.ComboBox cbxEmpleado;
+        private System.Windows.Forms.ComboBox cbxArticulo;
     }
 }
