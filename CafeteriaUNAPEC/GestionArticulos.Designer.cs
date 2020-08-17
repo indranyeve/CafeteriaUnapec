@@ -184,6 +184,7 @@
             // cbxProveedor
             // 
             this.cbxProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProveedor.FormattingEnabled = true;
             this.cbxProveedor.Location = new System.Drawing.Point(180, 441);
             this.cbxProveedor.Name = "cbxProveedor";
@@ -194,6 +195,7 @@
             // cbxMarca
             // 
             this.cbxMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(748, 331);
             this.cbxMarca.Name = "cbxMarca";
@@ -238,7 +240,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GestionArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GestionArticulos";
+            this.Text = "Mantenimiento Artículos";
             this.Load += new System.EventHandler(this.GestionArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.articulosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using CafeteriaUNAPEC.VALICADIONES;
 using CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades;
 
+
 namespace CafeteriaUNAPEC
 {
     public partial class GestionArticulos: Form
@@ -39,6 +40,7 @@ namespace CafeteriaUNAPEC
             txtExistencia.Text = "";
             cbxProveedor.SelectedIndex = 0;
             cbxMarca.SelectedIndex = 0;
+            IdArticulo = null;
         }
 
         public void ActualizarTabla()
@@ -277,17 +279,13 @@ namespace CafeteriaUNAPEC
 
         private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cbxMarca.SelectedIndex != 0)
-            //{
-            //}
+            
             IdMarca = cbxMarca.SelectedValue.ToString();
         }
 
         private void cbxProveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cbxProveedor.SelectedIndex != 0)
-            //{
-            //}
+           
             IdProveedor = cbxProveedor.SelectedValue.ToString();
         }
 

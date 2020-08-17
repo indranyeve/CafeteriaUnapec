@@ -34,8 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtEmpleadoID = new System.Windows.Forms.TextBox();
-            this.txtArticuloID = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.txtUnidadVendida = new System.Windows.Forms.TextBox();
             this.txtComentario = new System.Windows.Forms.TextBox();
@@ -107,20 +105,6 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Comentario";
             // 
-            // txtEmpleadoID
-            // 
-            this.txtEmpleadoID.Location = new System.Drawing.Point(144, 273);
-            this.txtEmpleadoID.Name = "txtEmpleadoID";
-            this.txtEmpleadoID.Size = new System.Drawing.Size(207, 22);
-            this.txtEmpleadoID.TabIndex = 6;
-            // 
-            // txtArticuloID
-            // 
-            this.txtArticuloID.Location = new System.Drawing.Point(144, 328);
-            this.txtArticuloID.Name = "txtArticuloID";
-            this.txtArticuloID.Size = new System.Drawing.Size(207, 22);
-            this.txtArticuloID.TabIndex = 7;
-            // 
             // txtMonto
             // 
             this.txtMonto.Location = new System.Drawing.Point(144, 379);
@@ -187,7 +171,7 @@
             // cbxEmpleado
             // 
             this.cbxEmpleado.FormattingEnabled = true;
-            this.cbxEmpleado.Location = new System.Drawing.Point(144, 302);
+            this.cbxEmpleado.Location = new System.Drawing.Point(144, 271);
             this.cbxEmpleado.Name = "cbxEmpleado";
             this.cbxEmpleado.Size = new System.Drawing.Size(207, 24);
             this.cbxEmpleado.TabIndex = 24;
@@ -196,7 +180,7 @@
             // cbxArticulo
             // 
             this.cbxArticulo.FormattingEnabled = true;
-            this.cbxArticulo.Location = new System.Drawing.Point(144, 349);
+            this.cbxArticulo.Location = new System.Drawing.Point(144, 328);
             this.cbxArticulo.Name = "cbxArticulo";
             this.cbxArticulo.Size = new System.Drawing.Size(207, 24);
             this.cbxArticulo.TabIndex = 25;
@@ -216,8 +200,6 @@
             this.Controls.Add(this.txtComentario);
             this.Controls.Add(this.txtUnidadVendida);
             this.Controls.Add(this.txtMonto);
-            this.Controls.Add(this.txtArticuloID);
-            this.Controls.Add(this.txtEmpleadoID);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -241,8 +223,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtEmpleadoID;
-        private System.Windows.Forms.TextBox txtArticuloID;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.TextBox txtUnidadVendida;
         private System.Windows.Forms.TextBox txtComentario;
