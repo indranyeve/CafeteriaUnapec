@@ -39,12 +39,12 @@ namespace CafeteriaUNAPEC.VALICADIONES
 
         public static ModelValidation numeroMinimo(this int num, int numParameter, string nameField)
         {
-            return (new ModelValidation { boolean = (num > numParameter), message = nameField+" seleccionado no debe ser menor o igual que "+numParameter });
+            return (new ModelValidation { boolean = (num > numParameter), message = nameField+" no debe ser menor o igual que "+numParameter });
         }
 
         public static ModelValidation numeroMaximo(this int num, int numParameter, string nameField)
         {
-            return (new ModelValidation { boolean = (num < numParameter), message = nameField+" seleccionado no debe ser mayor o igual que " + numParameter });
+            return (new ModelValidation { boolean = (num < numParameter), message = nameField+" no debe ser mayor o igual que " + numParameter });
         }
 
         public static ModelValidation indiceDiferente(this int num, int numParameter, string nameField)
@@ -69,7 +69,7 @@ namespace CafeteriaUNAPEC.VALICADIONES
             {
                 if (cedula.Length < 13)
                 {
-                    return (new ModelValidation {boolean = false, message = "La Cedula no es valida, debe tener 11 digitos sin guiones"});
+                    return (new ModelValidation {boolean = false, message = "La Cedula no es valida, debe tener 11 digitos con guiones"});
                 }
                 else
                 {
@@ -83,7 +83,7 @@ namespace CafeteriaUNAPEC.VALICADIONES
                     }
                     catch (FormatException)
                     {
-                        return (new ModelValidation { boolean = false, message = "La Cedula no es valida, debe tener 11 digitos sin guiones" });
+                        return (new ModelValidation { boolean = false, message = "La Cedula no es valida, debe tener 11 digitos con guiones" });
                     }
                 }
             }

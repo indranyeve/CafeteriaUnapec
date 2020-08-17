@@ -29,7 +29,7 @@ namespace CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades
         public void validar()
         {
             boolean = true;
-            if (Nombre.longitudMinima(3, "Nombre").boolean == false)
+            if (Nombre.longitudMinima(2, "Nombre").boolean == false)
             {
                 msg = msg + Nombre.longitudMinima(3, "Nombre").message + "\n";
                 boolean = false;
@@ -41,12 +41,19 @@ namespace CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades
             }
             if (PorcientoComision.mayorQueCero("Porciento Comision").boolean == false)
             {
-                msg = msg + PorcientoComision.mayorQueCero("PorcientoComision").message + "\n";
+                msg = msg + PorcientoComision.mayorQueCero("Porciento Comision").message + "\n";
                 boolean = false;
             }
             if (PorcientoComision.numeroMaximo(31, "Porciento Comision").boolean == false)
             {
                 msg = msg + PorcientoComision.numeroMaximo(31, "Porciento Comision").message + "\n";
+                boolean = false;
+            }
+            if(TandaLabor.longitudMinima(1, "Tanda de Labor").boolean == false)
+            {
+                var message = TandaLabor.longitudMinima(1, "Tanda de Labor").message;
+                message = "Debes seleccionar una Tanda de Labor";
+                msg = msg + message + "\n";
                 boolean = false;
             }
 

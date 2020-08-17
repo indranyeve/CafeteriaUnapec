@@ -8,12 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeteriaUNAPEC.VALICADIONES;
+using CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades;
 
 namespace CafeteriaUNAPEC
 {
     public partial class Empleados : Form
     {
         private SqlConnection dbCafeteria = connection.cadenaConexion;
+        private SqlDataAdapter dataAdapter;
+        private DataTable dataTable;
+        private SqlCommand Command;
+
+        string IdEmpleado, TandaLabor;
         public Empleados()
         {
             InitializeComponent();
@@ -22,65 +29,84 @@ namespace CafeteriaUNAPEC
 
         public void LimpiarCampos()
         {
-            txtID.Text = "";
             txtNombre.Text = "";
             txtCedula.Text = "";
-            txtTandaLabor.Text = "";
+            TandaLabor = null;
             txtPorcientoComision.Text = "";
+            IdEmpleado = null;
         }
         public void ActualizarTabla()
         {
-            dataGridView1.Rows.Clear();
+            //dataGridView1.Rows.Clear();
             string dbString = "Select * from Empleado where Estado = 1";
-            SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-            dbCafeteria.Open();
-            using (SqlDataReader Lector = Consulta.ExecuteReader())
+            try
             {
-                while (Lector.Read())
-                {
-                    dataGridView1.Rows.Add(Lector["EmpleadoID"].ToString(), Lector["Nombre"].ToString(),
-                        Lector["Cedula"].ToString(), Lector["TandaLabor"].ToString(), Lector["PorcentajeComision"].ToString(),
-                        Lector["FechaIngreso"].ToString());
+                dataAdapter = new SqlDataAdapter(dbString, dbCafeteria);
+                dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
 
-                }
-                dbCafeteria.Close();
+                dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
         //Evento Añadir
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
-            if(txtID.Text == "")
+            if(IdEmpleado == null)
             {
                 var Nombre = txtNombre.Text;
                 var Cedula = txtCedula.Text;
-                var TandaLabor = txtTandaLabor.Text;
-                var PorcientajeComision = Convert.ToInt32(txtPorcientoComision.Text);
+                TandaLabor += (radioButtonMatutina.Checked) ? radioButtonMatutina.Text : "";
+                TandaLabor += (radioButtonVespertina.Checked) ? radioButtonVespertina.Text : "";
+                TandaLabor += (radioButtonNocturna.Checked) ? radioButtonNocturna.Text : "";
+
+                var PorcientajeComision = (txtPorcientoComision.Text=="")?0: Convert.ToInt32(txtPorcientoComision.Text);
                 string FechaIngreso = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
                 var Estado = "1";
-                try
+
+                EmpleadoValidacion validador = new EmpleadoValidacion(Nombre, Cedula, PorcientajeComision, TandaLabor);
+                validador.validar();
+                bool isValidModel = validador.boolean;
+                if (isValidModel)
                 {
-                    dbCafeteria.Open();
-                    string dbString = "insert into Empleado values('" + Nombre + "', '" + Cedula + "', '" + TandaLabor + "', '"
-                        + PorcientajeComision + "', '" + FechaIngreso + "', '" + Estado + "')";
-                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-                    Consulta.ExecuteNonQuery();
-                    dbCafeteria.Close();
-                    ActualizarTabla();
-                    LimpiarCampos();
+                    try
+                    {
+                        dbCafeteria.Open();
+                        string dbString = "insert into Empleado values('" + Nombre + "', '" + Cedula + "', '" + TandaLabor + "', '"
+                            + PorcientajeComision + "', '" + FechaIngreso + "', '" + Estado + "')";
+                        SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                        Consulta.ExecuteNonQuery();
+                        dbCafeteria.Close();
+                        ActualizarTabla();
+                        LimpiarCampos();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ha ocurrido un error al insertar un registro");
+                        throw;
+                    }
                 }
-                catch (Exception)
+                else 
                 {
-                    MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    //Something To Do Here
+                    MessageBox.Show(validador.msg);
                 }
+
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IdEmpleado;
                 var Nombre = txtNombre.Text;
                 var Cedula = txtCedula.Text;
-                var TandaLabor = txtTandaLabor.Text;
+                TandaLabor += (radioButtonMatutina.Checked) ? radioButtonMatutina.Text : "";
+                TandaLabor += (radioButtonVespertina.Checked) ? radioButtonVespertina.Text : "";
+                TandaLabor += (radioButtonNocturna.Checked) ? radioButtonNocturna.Text : "";
+
                 var PorcientajeComision = Convert.ToInt32(txtPorcientoComision.Text);
                 try
                 {
@@ -110,10 +136,15 @@ namespace CafeteriaUNAPEC
         //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            IdEmpleado = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtNombre.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtCedula.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtTandaLabor.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+            string _TandaLabor = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            radioButtonMatutina.Checked = (_TandaLabor == radioButtonMatutina.Text) ? true : false;
+            radioButtonVespertina.Checked = (_TandaLabor == radioButtonVespertina.Text) ? true : false;
+            radioButtonNocturna.Checked = (_TandaLabor == radioButtonNocturna.Text) ? true : false;
+
             txtPorcientoComision.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             
         }
@@ -121,13 +152,13 @@ namespace CafeteriaUNAPEC
         //Eliminar
         private void CmdEliminar(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (IdEmpleado == null)
             {
                 MessageBox.Show("No has seleccionado una fila para eliminar");
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IdEmpleado;
                 try
                 {
                     dbCafeteria.Open();

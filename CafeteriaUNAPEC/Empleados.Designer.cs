@@ -35,21 +35,16 @@
             this.labelPorcientoComision = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtTandaLabor = new System.Windows.Forms.TextBox();
             this.txtPorcientoComision = new System.Windows.Forms.TextBox();
             this.CmdAnadir = new System.Windows.Forms.Button();
             this.CmdLimpiar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.EmpleadoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TandaLabor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PorcentajeComision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtID = new System.Windows.Forms.TextBox();
             this.CmdEditar = new System.Windows.Forms.Button();
             this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.radioButtonMatutina = new System.Windows.Forms.RadioButton();
+            this.radioButtonVespertina = new System.Windows.Forms.RadioButton();
+            this.radioButtonNocturna = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -112,15 +107,6 @@
             this.txtCedula.TabIndex = 8;
             this.txtCedula.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // txtTandaLabor
-            // 
-            this.txtTandaLabor.Location = new System.Drawing.Point(928, 365);
-            this.txtTandaLabor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTandaLabor.Name = "txtTandaLabor";
-            this.txtTandaLabor.Size = new System.Drawing.Size(388, 22);
-            this.txtTandaLabor.TabIndex = 9;
-            this.txtTandaLabor.TextChanged += new System.EventHandler(this.txtTandaLabor_TextChanged);
-            // 
             // txtPorcientoComision
             // 
             this.txtPorcientoComision.Location = new System.Drawing.Point(928, 322);
@@ -157,82 +143,17 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EmpleadoID,
-            this.Nombre,
-            this.Cedula,
-            this.TandaLabor,
-            this.PorcentajeComision,
-            this.FechaIngreso,
-            this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 64);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1331, 199);
+            this.dataGridView1.Size = new System.Drawing.Size(1357, 261);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick_1);
-            // 
-            // EmpleadoID
-            // 
-            this.EmpleadoID.HeaderText = "EmpleadoID";
-            this.EmpleadoID.MinimumWidth = 6;
-            this.EmpleadoID.Name = "EmpleadoID";
-            this.EmpleadoID.ReadOnly = true;
-            this.EmpleadoID.Visible = false;
-            this.EmpleadoID.Width = 125;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 125;
-            // 
-            // Cedula
-            // 
-            this.Cedula.HeaderText = "Cedula";
-            this.Cedula.MinimumWidth = 6;
-            this.Cedula.Name = "Cedula";
-            this.Cedula.ReadOnly = true;
-            this.Cedula.Width = 125;
-            // 
-            // TandaLabor
-            // 
-            this.TandaLabor.HeaderText = "TandaLabor";
-            this.TandaLabor.MinimumWidth = 6;
-            this.TandaLabor.Name = "TandaLabor";
-            this.TandaLabor.ReadOnly = true;
-            this.TandaLabor.Width = 125;
-            // 
-            // PorcentajeComision
-            // 
-            this.PorcentajeComision.HeaderText = "PorcientoComision";
-            this.PorcentajeComision.MinimumWidth = 6;
-            this.PorcentajeComision.Name = "PorcentajeComision";
-            this.PorcentajeComision.ReadOnly = true;
-            this.PorcentajeComision.Width = 125;
-            // 
-            // FechaIngreso
-            // 
-            this.FechaIngreso.HeaderText = "FechaIngreso";
-            this.FechaIngreso.MinimumWidth = 6;
-            this.FechaIngreso.Name = "FechaIngreso";
-            this.FechaIngreso.ReadOnly = true;
-            this.FechaIngreso.Width = 125;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Visible = false;
-            this.Estado.Width = 125;
             // 
             // txtID
             // 
@@ -255,18 +176,53 @@
             this.CmdEditar.UseVisualStyleBackColor = true;
             this.CmdEditar.Click += new System.EventHandler(this.CmdEliminar);
             // 
+            // radioButtonMatutina
+            // 
+            this.radioButtonMatutina.AutoSize = true;
+            this.radioButtonMatutina.Location = new System.Drawing.Point(928, 368);
+            this.radioButtonMatutina.Name = "radioButtonMatutina";
+            this.radioButtonMatutina.Size = new System.Drawing.Size(83, 21);
+            this.radioButtonMatutina.TabIndex = 20;
+            this.radioButtonMatutina.TabStop = true;
+            this.radioButtonMatutina.Text = "Matutina";
+            this.radioButtonMatutina.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonVespertina
+            // 
+            this.radioButtonVespertina.AutoSize = true;
+            this.radioButtonVespertina.Location = new System.Drawing.Point(1061, 368);
+            this.radioButtonVespertina.Name = "radioButtonVespertina";
+            this.radioButtonVespertina.Size = new System.Drawing.Size(97, 21);
+            this.radioButtonVespertina.TabIndex = 21;
+            this.radioButtonVespertina.TabStop = true;
+            this.radioButtonVespertina.Text = "Vespertina";
+            this.radioButtonVespertina.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNocturna
+            // 
+            this.radioButtonNocturna.AutoSize = true;
+            this.radioButtonNocturna.Location = new System.Drawing.Point(1206, 368);
+            this.radioButtonNocturna.Name = "radioButtonNocturna";
+            this.radioButtonNocturna.Size = new System.Drawing.Size(87, 21);
+            this.radioButtonNocturna.TabIndex = 22;
+            this.radioButtonNocturna.TabStop = true;
+            this.radioButtonNocturna.Text = "Nocturna";
+            this.radioButtonNocturna.UseVisualStyleBackColor = true;
+            // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1357, 625);
+            this.Controls.Add(this.radioButtonNocturna);
+            this.Controls.Add(this.radioButtonVespertina);
+            this.Controls.Add(this.radioButtonMatutina);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.CmdEditar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.CmdLimpiar);
             this.Controls.Add(this.CmdAnadir);
             this.Controls.Add(this.txtPorcientoComision);
-            this.Controls.Add(this.txtTandaLabor);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.labelPorcientoComision);
@@ -292,19 +248,14 @@
         private System.Windows.Forms.Label labelPorcientoComision;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtTandaLabor;
         private System.Windows.Forms.TextBox txtPorcientoComision;
         private System.Windows.Forms.Button CmdAnadir;
         private System.Windows.Forms.Button CmdLimpiar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button CmdEditar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmpleadoID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TandaLabor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PorcentajeComision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.RadioButton radioButtonMatutina;
+        private System.Windows.Forms.RadioButton radioButtonVespertina;
+        private System.Windows.Forms.RadioButton radioButtonNocturna;
     }
 }
