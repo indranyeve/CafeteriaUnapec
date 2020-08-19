@@ -94,7 +94,7 @@
             this.labelProveedor.BackColor = System.Drawing.Color.LightSteelBlue;
             this.labelProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProveedor.ForeColor = System.Drawing.Color.Black;
-            this.labelProveedor.Location = new System.Drawing.Point(21, 441);
+            this.labelProveedor.Location = new System.Drawing.Point(21, 428);
             this.labelProveedor.Name = "labelProveedor";
             this.labelProveedor.Size = new System.Drawing.Size(85, 20);
             this.labelProveedor.TabIndex = 4;
@@ -186,7 +186,7 @@
             this.cbxProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbxProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProveedor.FormattingEnabled = true;
-            this.cbxProveedor.Location = new System.Drawing.Point(180, 441);
+            this.cbxProveedor.Location = new System.Drawing.Point(180, 428);
             this.cbxProveedor.Name = "cbxProveedor";
             this.cbxProveedor.Size = new System.Drawing.Size(355, 24);
             this.cbxProveedor.TabIndex = 4;

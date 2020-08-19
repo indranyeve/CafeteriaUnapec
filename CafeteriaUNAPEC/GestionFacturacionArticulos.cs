@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeteriaUNAPEC.VALICADIONES;
+using CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades;
 
 namespace CafeteriaUNAPEC
 {
@@ -27,7 +29,7 @@ namespace CafeteriaUNAPEC
 
         public void LimpiarCampos()
         {
-            txtID.Text = "";
+            IdFactura = null;
             cbxEmpleado.SelectedIndex = 0;
             cbxArticulo.SelectedIndex = 0;
             txtMonto.Text = "";
@@ -118,25 +120,37 @@ namespace CafeteriaUNAPEC
                 var EmpleadoID = Convert.ToInt32(IdEmpleado);
                 var ArticuloID = Convert.ToInt32(IdArticulo);
                 string FechaVenta = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
-                var Monto = Convert.ToDouble(txtMonto.Text);
-                var UnidadVendida = Convert.ToInt32(txtUnidadVendida.Text);
+                var Monto = (txtMonto.Text == "") ? 0 : Convert.ToInt32(txtMonto.Text);
+                var UnidadVendida = (txtUnidadVendida.Text == "") ? 0 : Convert.ToInt32(txtUnidadVendida.Text);
                 var Comentario = txtComentario.Text;
                 var Estado = "1";
 
-                try
+                FacturacionArticulosValidacion validador = new FacturacionArticulosValidacion(EmpleadoID, ArticuloID, Monto, UnidadVendida, Comentario);
+                validador.validar();
+                bool isValidModel = validador.boolean;
+
+                if (isValidModel == true)
                 {
-                    dbCafeteria.Open();
-                    string dbString = "insert into FacturaArticulo values('"+EmpleadoID+"', '"+ArticuloID+"', '"+FechaVenta+"', '"+Monto+"', '"+UnidadVendida+"', '"+Comentario+"','"+Estado+"')";
-                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-                    Consulta.ExecuteNonQuery();
-                    dbCafeteria.Close();
-                    ActualizarTabla();
-                    LimpiarCampos();
+                    try
+                    {
+                        dbCafeteria.Open();
+                        string dbString = "insert into FacturaArticulo values('" + EmpleadoID + "', '" + ArticuloID + "', '" + FechaVenta + "', '" + Monto + "', '" + UnidadVendida + "', '" + Comentario + "','" + Estado + "')";
+                        SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                        Consulta.ExecuteNonQuery();
+                        dbCafeteria.Close();
+                        ActualizarTabla();
+                        LimpiarCampos();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ha ocurrido un error al insertar un registro");
+                        throw;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    //Something To Do Here
+                    MessageBox.Show(validador.msg);
                 }
             }
             else
@@ -144,8 +158,8 @@ namespace CafeteriaUNAPEC
                 var id = IdFactura;
                 var EmpleadoID = Convert.ToInt32(IdEmpleado);
                 var ArticuloID = Convert.ToInt32(IdArticulo);
-                var Monto = Convert.ToDouble(txtMonto.Text);
-                var UnidadVendida = Convert.ToInt32(txtUnidadVendida.Text);
+                var Monto = (txtMonto.Text == "") ? 0 : Convert.ToInt32(txtMonto.Text);
+                var UnidadVendida = (txtUnidadVendida.Text == "") ? 0 : Convert.ToInt32(txtUnidadVendida.Text);
                 var Comentario = txtComentario.Text;
 
                 try

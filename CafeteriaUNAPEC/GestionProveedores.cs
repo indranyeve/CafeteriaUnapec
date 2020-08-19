@@ -14,34 +14,43 @@ namespace CafeteriaUNAPEC
     public partial class GestionProveedores : Form
     {
         private SqlConnection dbCafeteria = connection.cadenaConexion;
+        private SqlDataAdapter dataAdapter;
+        private DataTable dataTable;
+        private SqlCommand Command;
+        string IdProveedor;
 
         public GestionProveedores()
         {
             InitializeComponent();
             ActualizarTabla();
+            //MessageBox.Show((System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0])));
         }
 
         public void LimpiarCampos()
         {
-            txtID.Text = "";
+            IdProveedor = null;
             txtNombreComercial.Text = "";
             txtRNC.Text = "";
         }
 
         public void ActualizarTabla()
         {
-            dataGridView1.Rows.Clear();
+            //dataGridView1.Rows.Clear();
             string dbString = "Select * from Proveedor where Estado = 1";
-            SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-            dbCafeteria.Open();
-            using (SqlDataReader Lector = Consulta.ExecuteReader())
+            
+
+            try
             {
-                while (Lector.Read())
-                {
-                    dataGridView1.Rows.Add(Lector["ProveedorID"].ToString(), Lector["NombreComercial"].ToString(), Lector["RNC"].ToString(), 
-                        Lector["FechaIngreso"].ToString());
-                }
-                dbCafeteria.Close();
+                dataAdapter = new SqlDataAdapter(dbString, dbCafeteria);
+                dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -55,7 +64,7 @@ namespace CafeteriaUNAPEC
         //Evento Añadir
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (IdProveedor == null)
             {
                 var NombreComercial = txtNombreComercial.Text;
                 var RNC = txtRNC.Text;
@@ -80,7 +89,7 @@ namespace CafeteriaUNAPEC
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IdProveedor;
                 var NombreComercial = txtNombreComercial.Text;
                 var RNC = txtRNC.Text;
 
@@ -112,7 +121,7 @@ namespace CafeteriaUNAPEC
         //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            IdProveedor = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtNombreComercial.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtRNC.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
@@ -120,13 +129,13 @@ namespace CafeteriaUNAPEC
         //Eliminar
         private void CmdEliminar_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (IdProveedor == null)
             {
                 MessageBox.Show("No has seleccionado una fila para eliminar");
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IdProveedor;
                 try
                 {
                     dbCafeteria.Open();
@@ -145,10 +154,63 @@ namespace CafeteriaUNAPEC
             }
         }
 
-       
+
+        /***************LLAMANDO STORE PROCEDURE*/
+
+        //METODO EJERCUTAR STORE PROCEDURE
+        public IEnumerable<T> EjecutarStoredProcedure<T>(string storedProcedure, string connectionString, SqlParameter[] parameters, Func<SqlDataReader, T> body)
+        {
+            List<T> results = new List<T>();
+
+            using (dbCafeteria)
+            {
+                SqlCommand command = connection.CreateSPConnection(storedProcedure, connectionString);
+                command.Parameters.AddRange(parameters);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    results.Add(body(reader));
+                }
+                reader.Close();
+            }
+            return results;
+        }
+
+        //REFERENCIAR STORE PROCEDURE
+        public IEnumerable<UserEntity> GetUser()
+        {
+            try
+            {
+                return ProceduresExecution.Instance.EjecutarStoredProcedure<UserEntity>("NombreStoredProcedure",
+                    GlobalData.ConnectionStringDefault,
+                    new SqlParameter[]{
+                new SqlParameter("@inUserId", 123),
+                new SqlParameter("@OtroParametro", "OtroParametro")
+                    },
+                    reader =>
+                    {
+                        return new UserEntity
+                        {
+                    //En esta sección van todas las propiedades de la Entidad UserEntity y ["Aqui"] van mapeados a los nombres de las columnas que recuperaste en la consulta de base de datos
+                    UserId = (int)reader["UserId"],
+                            Nombre = reader["Nombre"].ToString()
+        
+                            UserTypeId = (int)reader["UserTypeId"]
+                        };
+                    });
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al obtener el usuario" + ex.message);
+            }
+        }
+
+        new SqlParameter[] 
+        {
+            new SqlParameter("@inUserId", 123),
+            new SqlParameter("@OtroParametro", "OtroParametro")
+        }
 
 
-
-
-    }
+}
 }

@@ -28,34 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtID = new System.Windows.Forms.TextBox();
             this.CmdEliminar = new System.Windows.Forms.Button();
             this.CmdLimpiar = new System.Windows.Forms.Button();
             this.CmdAnadir = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.labelDescripcion = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CampusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(421, 630);
-            this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(355, 22);
-            this.txtID.TabIndex = 31;
-            this.txtID.Visible = false;
-            // 
             // CmdEliminar
             // 
-            this.CmdEliminar.Location = new System.Drawing.Point(537, 533);
+            this.CmdEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmdEliminar.Location = new System.Drawing.Point(1010, 398);
             this.CmdEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdEliminar.Name = "CmdEliminar";
-            this.CmdEliminar.Size = new System.Drawing.Size(120, 74);
+            this.CmdEliminar.Size = new System.Drawing.Size(106, 46);
             this.CmdEliminar.TabIndex = 30;
             this.CmdEliminar.Text = "&Eliminar";
             this.CmdEliminar.UseVisualStyleBackColor = true;
@@ -63,10 +51,11 @@
             // 
             // CmdLimpiar
             // 
-            this.CmdLimpiar.Location = new System.Drawing.Point(739, 533);
+            this.CmdLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmdLimpiar.Location = new System.Drawing.Point(1122, 398);
             this.CmdLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdLimpiar.Name = "CmdLimpiar";
-            this.CmdLimpiar.Size = new System.Drawing.Size(120, 74);
+            this.CmdLimpiar.Size = new System.Drawing.Size(106, 46);
             this.CmdLimpiar.TabIndex = 29;
             this.CmdLimpiar.Text = "Limpiar";
             this.CmdLimpiar.UseVisualStyleBackColor = true;
@@ -74,10 +63,11 @@
             // 
             // CmdAnadir
             // 
-            this.CmdAnadir.Location = new System.Drawing.Point(329, 533);
+            this.CmdAnadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmdAnadir.Location = new System.Drawing.Point(898, 398);
             this.CmdAnadir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdAnadir.Name = "CmdAnadir";
-            this.CmdAnadir.Size = new System.Drawing.Size(123, 74);
+            this.CmdAnadir.Size = new System.Drawing.Size(106, 46);
             this.CmdAnadir.TabIndex = 28;
             this.CmdAnadir.Text = "Guardar";
             this.CmdAnadir.UseVisualStyleBackColor = true;
@@ -105,60 +95,31 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CampusID,
-            this.Descripcion,
-            this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1216, 292);
+            this.dataGridView1.Size = new System.Drawing.Size(1240, 292);
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick_1);
-            // 
-            // CampusID
-            // 
-            this.CampusID.HeaderText = "CampusID";
-            this.CampusID.MinimumWidth = 6;
-            this.CampusID.Name = "CampusID";
-            this.CampusID.ReadOnly = true;
-            this.CampusID.Visible = false;
-            this.CampusID.Width = 125;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.MinimumWidth = 6;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 125;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Visible = false;
-            this.Estado.Width = 125;
             // 
             // GestionCampus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 667);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(1240, 480);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.CmdEliminar);
             this.Controls.Add(this.CmdLimpiar);
             this.Controls.Add(this.CmdAnadir);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.labelDescripcion);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestionCampus";
-            this.Text = "GestionCampus";
+            this.Text = "Mantenimiento Campus";
             this.Load += new System.EventHandler(this.GestionCampus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -167,16 +128,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button CmdEliminar;
         private System.Windows.Forms.Button CmdLimpiar;
         private System.Windows.Forms.Button CmdAnadir;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label labelDescripcion;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CampusID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

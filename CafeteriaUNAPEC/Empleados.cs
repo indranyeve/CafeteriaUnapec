@@ -72,7 +72,7 @@ namespace CafeteriaUNAPEC
                 EmpleadoValidacion validador = new EmpleadoValidacion(Nombre, Cedula, PorcientajeComision, TandaLabor);
                 validador.validar();
                 bool isValidModel = validador.boolean;
-                if (isValidModel)
+                if (isValidModel == true)
                 {
                     try
                     {

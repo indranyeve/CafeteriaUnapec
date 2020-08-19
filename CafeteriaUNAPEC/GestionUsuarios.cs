@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeteriaUNAPEC.VALICADIONES;
+using CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades;
 
 namespace CafeteriaUNAPEC
 {
@@ -32,6 +34,7 @@ namespace CafeteriaUNAPEC
 
         public void LimpiarCampos()
         {
+            IdUsuarios = null;
             txtNombre.Text = "";
             txtCedula.Text = "";
             txtLimiteCredito.Text = "";
@@ -92,25 +95,37 @@ namespace CafeteriaUNAPEC
 
                 var Nombre = txtNombre.Text;
                 var Cedula = txtCedula.Text;
-                var TipoDeUsuario = IdTipoDeUsuarios;
-                var LimiteCredito = txtLimiteCredito.Text;
-                var FechaRegistro = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+                var TipoDeUsuario = Convert.ToInt32(IdTipoDeUsuarios);
+                var LimiteCredito = (txtLimiteCredito.Text == "") ? 0 : Convert.ToInt32(txtLimiteCredito.Text); 
+                 var FechaRegistro = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
                 var Estado = "1";
 
-                try
+                UsuariosValidacion validador = new UsuariosValidacion(Nombre, Cedula, LimiteCredito, TipoDeUsuario);
+                validador.validar();
+                bool isValidModel = validador.boolean;
+
+                if (isValidModel == true)
                 {
-                    dbCafeteria.Open();
-                    string dbString = "insert into Usuario values ('" + Nombre + "', '" + Cedula + "', '" + TipoDeUsuario + "', '" + LimiteCredito + "', '" + FechaRegistro + "', '" + Estado + "')";
-                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-                    Consulta.ExecuteNonQuery();
-                    dbCafeteria.Close();
-                    ActualizarTabla();
-                    LimpiarCampos();
+                    try
+                    {
+                        dbCafeteria.Open();
+                        string dbString = "insert into Usuario values ('" + Nombre + "', '" + Cedula + "', '" + TipoDeUsuario + "', '" + LimiteCredito + "', '" + FechaRegistro + "', '" + Estado + "')";
+                        SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                        Consulta.ExecuteNonQuery();
+                        dbCafeteria.Close();
+                        ActualizarTabla();
+                        LimpiarCampos();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ha ocurrido un error al insertar un registro");
+                        throw;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    //Something To Do Here
+                    MessageBox.Show(validador.msg);
                 }
 
             }

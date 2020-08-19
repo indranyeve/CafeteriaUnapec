@@ -8,12 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeteriaUNAPEC.VALICADIONES;
+using CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades;
 
 namespace CafeteriaUNAPEC
 {
     public partial class GestionCampus : Form
     {
         private SqlConnection dbCafeteria = connection.cadenaConexion;
+        private SqlDataAdapter dataAdapter;
+        private DataTable dataTable;
+        private SqlCommand Command;
+        string IdCafeteria, IdCampus;
         public GestionCampus()
         {
             InitializeComponent();
@@ -22,54 +28,81 @@ namespace CafeteriaUNAPEC
 
         public void LimpiarCampos() 
         {
-            txtID.Text = "";
+            IdCafeteria = null;
             txtDescription.Text = "";
         }
 
         public void ActualizarTabla() 
         {
-            dataGridView1.Rows.Clear();
+            // dataGridView1.Rows.Clear();
             string dbString = "Select * from Campus where estado = 1";
-            SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-            dbCafeteria.Open();
-            using (SqlDataReader Lector = Consulta.ExecuteReader()) 
+
+            //SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+            //dbCafeteria.Open();
+            //using (SqlDataReader Lector = Consulta.ExecuteReader()) 
+            //{
+            //    while (Lector.Read()) 
+            //    {
+            //        dataGridView1.Rows.Add(Lector["CampusID"].ToString(),Lector["Descripcion"].ToString());
+            //    }
+            //}
+            //dbCafeteria.Close();
+
+            try
             {
-                while (Lector.Read()) 
-                {
-                    dataGridView1.Rows.Add(Lector["CampusID"].ToString(),Lector["Descripcion"].ToString());
-                }
+                dataAdapter = new SqlDataAdapter(dbString, dbCafeteria);
+                dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                dataGridView1.DataSource = dataTable;
             }
-            dbCafeteria.Close();
+            catch (Exception ex)
+            {
+
+                throw;
+            }
 
         }
 
         //Evento Guardar
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "") 
+            if (IdCafeteria == null) 
             {
                 var Descripcion = txtDescription.Text;
                 var Estado = "1";
 
-                try
+                CampusValidacion validador = new CampusValidacion(Descripcion);
+                validador.validar();
+                bool isValidModel = validador.boolean; 
+
+                if (isValidModel == true)
                 {
-                    dbCafeteria.Open();
-                    string dbString = "insert into Campus values('" + Descripcion + "', '" + Estado + "')";
-                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-                    Consulta.ExecuteNonQuery();
-                    dbCafeteria.Close();
-                    ActualizarTabla();
-                    LimpiarCampos();
+                    try
+                    {
+                        dbCafeteria.Open();
+                        string dbString = "insert into Campus values('" + Descripcion + "', '" + Estado + "')";
+                        SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                        Consulta.ExecuteNonQuery();
+                        dbCafeteria.Close();
+                        ActualizarTabla();
+                        LimpiarCampos();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ha ocurrido un error al insertar un registro");
+                        throw;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    //Something To Do Here
+                    MessageBox.Show(validador.msg);
                 }
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IdCafeteria;
                 var Descripcion = txtDescription.Text;
                 try
                 {
@@ -94,14 +127,14 @@ namespace CafeteriaUNAPEC
         //Eliminar
         private void CmdEliminar_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "") 
+            if (IdCafeteria == null) 
             {
                 MessageBox.Show("No haz seleccionado una fila para eliminar");
             }
 
             else
             {
-                var ID = txtID.Text;
+                var ID = IdCafeteria;
                 try
                 {
                     dbCafeteria.Open();
@@ -136,7 +169,7 @@ namespace CafeteriaUNAPEC
         //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            IdCafeteria = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
     }

@@ -43,10 +43,11 @@
             // 
             // CmdEliminar
             // 
-            this.CmdEliminar.Location = new System.Drawing.Point(535, 533);
+            this.CmdEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmdEliminar.Location = new System.Drawing.Point(997, 449);
             this.CmdEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdEliminar.Name = "CmdEliminar";
-            this.CmdEliminar.Size = new System.Drawing.Size(120, 74);
+            this.CmdEliminar.Size = new System.Drawing.Size(108, 46);
             this.CmdEliminar.TabIndex = 30;
             this.CmdEliminar.Text = "&Eliminar";
             this.CmdEliminar.UseVisualStyleBackColor = true;
@@ -54,10 +55,11 @@
             // 
             // CmdLimpiar
             // 
-            this.CmdLimpiar.Location = new System.Drawing.Point(737, 533);
+            this.CmdLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmdLimpiar.Location = new System.Drawing.Point(1111, 449);
             this.CmdLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdLimpiar.Name = "CmdLimpiar";
-            this.CmdLimpiar.Size = new System.Drawing.Size(120, 74);
+            this.CmdLimpiar.Size = new System.Drawing.Size(108, 46);
             this.CmdLimpiar.TabIndex = 29;
             this.CmdLimpiar.Text = "Limpiar";
             this.CmdLimpiar.UseVisualStyleBackColor = true;
@@ -65,10 +67,11 @@
             // 
             // CmdAnadir
             // 
-            this.CmdAnadir.Location = new System.Drawing.Point(329, 533);
+            this.CmdAnadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmdAnadir.Location = new System.Drawing.Point(884, 449);
             this.CmdAnadir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmdAnadir.Name = "CmdAnadir";
-            this.CmdAnadir.Size = new System.Drawing.Size(123, 74);
+            this.CmdAnadir.Size = new System.Drawing.Size(107, 46);
             this.CmdAnadir.TabIndex = 28;
             this.CmdAnadir.Text = "Guardar";
             this.CmdAnadir.UseVisualStyleBackColor = true;
@@ -76,54 +79,61 @@
             // 
             // txtEncargado
             // 
+            this.txtEncargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtEncargado.Location = new System.Drawing.Point(769, 335);
             this.txtEncargado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEncargado.Name = "txtEncargado";
-            this.txtEncargado.Size = new System.Drawing.Size(355, 22);
+            this.txtEncargado.Size = new System.Drawing.Size(355, 26);
             this.txtEncargado.TabIndex = 26;
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtDescripcion.Location = new System.Drawing.Point(180, 336);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(355, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(355, 26);
             this.txtDescripcion.TabIndex = 23;
             this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // labelProveedor
             // 
             this.labelProveedor.AutoSize = true;
+            this.labelProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelProveedor.Location = new System.Drawing.Point(616, 338);
             this.labelProveedor.Name = "labelProveedor";
-            this.labelProveedor.Size = new System.Drawing.Size(77, 17);
+            this.labelProveedor.Size = new System.Drawing.Size(89, 20);
             this.labelProveedor.TabIndex = 21;
             this.labelProveedor.Text = "Encargado";
             // 
             // labelMarca
             // 
             this.labelMarca.AutoSize = true;
-            this.labelMarca.Location = new System.Drawing.Point(21, 389);
+            this.labelMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelMarca.Location = new System.Drawing.Point(21, 392);
             this.labelMarca.Name = "labelMarca";
-            this.labelMarca.Size = new System.Drawing.Size(59, 17);
+            this.labelMarca.Size = new System.Drawing.Size(71, 20);
             this.labelMarca.TabIndex = 19;
             this.labelMarca.Text = "Campus";
             // 
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
+            this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelDescripcion.Location = new System.Drawing.Point(21, 336);
             this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(82, 17);
+            this.labelDescripcion.Size = new System.Drawing.Size(99, 20);
             this.labelDescripcion.TabIndex = 18;
             this.labelDescripcion.Text = "Descripcion";
             // 
             // cbxCampus
             // 
+            this.cbxCampus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCampus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbxCampus.FormattingEnabled = true;
             this.cbxCampus.Location = new System.Drawing.Point(180, 389);
             this.cbxCampus.Name = "cbxCampus";
-            this.cbxCampus.Size = new System.Drawing.Size(355, 24);
+            this.cbxCampus.Size = new System.Drawing.Size(355, 28);
             this.cbxCampus.TabIndex = 33;
             this.cbxCampus.SelectedIndexChanged += new System.EventHandler(this.cbxCampus_SelectedIndexChanged);
             // 
@@ -144,7 +154,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 667);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(1240, 529);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cbxCampus);
             this.Controls.Add(this.CmdEliminar);
@@ -157,7 +168,7 @@
             this.Controls.Add(this.labelDescripcion);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestionCafeteria";
-            this.Text = "GestionCafeteria";
+            this.Text = "Mantenimiento Cafeteria";
             this.Load += new System.EventHandler(this.GestionCafeteria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -162,6 +162,47 @@ namespace CafeteriaUNAPEC.VALICADIONES
             }
         }
 
+        public static ModelValidation esUnRNCValido(string pRNC)
+
+        {
+
+            int vnTotal = 0;
+
+            int[] digitoMult = new int[8] { 7, 9, 8, 6, 5, 4, 3, 2 };
+
+            string vcRNC = pRNC.Replace("-", "").Replace(" ", "");
+
+            string vDigito = vcRNC.Substring(8, 0);
+
+            if (vcRNC.Length.Equals(9))
+
+                if (!"145".Contains(vcRNC.Substring(0, 1)))
+
+                  // return false;
+                   return (new ModelValidation { boolean = false, message = "El RNC no es valido" });
+
+            for (int vDig = 1; vDig <= 8; vDig++)
+
+            {
+
+                int vCalculo = Int32.Parse(vcRNC.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+
+                vnTotal += vCalculo;
+
+            }
+
+            if (vnTotal % 11 == 0 && vDigito == "1" || vnTotal % 11 == 1 && vDigito == "1" || (11 - (vnTotal % 11)).Equals(vDigito))
+
+                //return true;
+                return (new ModelValidation { boolean = true});
+
+            else
+
+                //return false;
+               return (new ModelValidation { boolean = false, message = "El RNC no es valido" });
+
+        }
+
     }
 
     public class ModelValidation

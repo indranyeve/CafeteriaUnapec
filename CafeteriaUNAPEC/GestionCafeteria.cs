@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeteriaUNAPEC.VALICADIONES;
+using CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades;
 
 namespace CafeteriaUNAPEC
 {
@@ -32,6 +34,7 @@ namespace CafeteriaUNAPEC
             txtDescripcion.Text = "";
             cbxCampus.SelectedIndex = 0;
             txtEncargado.Text = "";
+            IdCafeteria = null;
         }
 
         public void ActualizarTabla()
@@ -77,33 +80,43 @@ namespace CafeteriaUNAPEC
             if (IdCafeteria == null)
             {
                 var Descripcion = txtDescripcion.Text;
-                var Campus = IdCampus;
+                var Campus = Convert.ToInt32(IdCampus);
                 var Encargado = txtEncargado.Text;
                 var Estado = "1";
-                
-                
 
-                try
+                CafeteriaValidacion validador = new CafeteriaValidacion(Descripcion, Campus, Encargado);
+                validador.validar();
+                bool isValidModel = validador.boolean;
+
+                if (isValidModel == true)
                 {
-                    dbCafeteria.Open();
-                    string dbString = "insert into Cafeteria values('"+ Descripcion +"', '" + Campus + "', '" + Estado + "', '" + Encargado + "')";
-                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-                    Consulta.ExecuteNonQuery();
-                    dbCafeteria.Close();
-                    ActualizarTabla();
-                    LimpiarCampos();
+                    try
+                    {
+                        dbCafeteria.Open();
+                        string dbString = "insert into Cafeteria values('" + Descripcion + "', '" + Campus + "', '" + Estado + "', '" + Encargado + "')";
+                        SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                        Consulta.ExecuteNonQuery();
+                        dbCafeteria.Close();
+                        ActualizarTabla();
+                        LimpiarCampos();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ha ocurrido un error al insertar un registro");
+                        throw;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    //Something To Do Here
+                    MessageBox.Show(validador.msg);
                 }
             }
             else
             {
                 var ID = IdCafeteria;
                 var Descripcion = txtDescripcion.Text;
-                var Campus = IdCampus;
+                var Campus = Convert.ToInt32(IdCampus);
                 var Encargado = txtEncargado.Text;
 
                 try

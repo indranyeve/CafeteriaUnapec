@@ -8,12 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeteriaUNAPEC.VALICADIONES;
+using CafeteriaUNAPEC.VALICADIONES.ValidacionesEntidades;
 
 namespace CafeteriaUNAPEC
 {
     public partial class TipoDeUsuario : Form
     {
         private SqlConnection dbCafeteria = connection.cadenaConexion;
+        private SqlDataAdapter dataAdapter;
+        private DataTable dataTable;
+        private SqlCommand Command;
+
+        string IDTipoDeUsuario;
         public TipoDeUsuario()
         {
             InitializeComponent();
@@ -22,53 +29,79 @@ namespace CafeteriaUNAPEC
 
         public void LimpiarCampos()
         {
-            txtID.Text = "";
+            IDTipoDeUsuario = null;
             txtDescription.Text = "";
         }
 
         public void ActualizarTabla()
         {
-            dataGridView1.Rows.Clear();
+            //dataGridView1.Rows.Clear();
             string dbString = "Select * from TipoDeUsuario where Estado = 1";
-            SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-            dbCafeteria.Open();
-            using (SqlDataReader Lector = Consulta.ExecuteReader())
+            //SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+            //dbCafeteria.Open();
+            //using (SqlDataReader Lector = Consulta.ExecuteReader())
+            //{
+            //    while (Lector.Read())
+            //    {
+            //        dataGridView1.Rows.Add(Lector["TipoDeUsuarioID"].ToString(), Lector["Descripcion"].ToString());
+            //    }
+            //    dbCafeteria.Close();
+            //}
+
+            try
             {
-                while (Lector.Read())
-                {
-                    dataGridView1.Rows.Add(Lector["TipoDeUsuarioID"].ToString(), Lector["Descripcion"].ToString());
-                }
-                dbCafeteria.Close();
+                dataAdapter = new SqlDataAdapter(dbString, dbCafeteria);
+                dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
         //Evento Guardar
         private void CmdAnadir_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (IDTipoDeUsuario == null)
             {
                 var Descripcion = txtDescription.Text;
                 var Estado = "1";
 
-                try
+                TipoDeUsuarioValidacion validador = new TipoDeUsuarioValidacion(Descripcion);
+                validador.validar();
+                bool isValidModel = validador.boolean;
+
+                if (isValidModel == true)
                 {
-                    dbCafeteria.Open();
-                    string dbString = "insert into TipoDeUsuario values('" + Descripcion + "', '"+Estado+"')";
-                    SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
-                    Consulta.ExecuteNonQuery();
-                    dbCafeteria.Close();
-                    ActualizarTabla();
-                    LimpiarCampos();
+                    try
+                    {
+                        dbCafeteria.Open();
+                        string dbString = "insert into TipoDeUsuario values('" + Descripcion + "', '" + Estado + "')";
+                        SqlCommand Consulta = new SqlCommand(dbString, dbCafeteria);
+                        Consulta.ExecuteNonQuery();
+                        dbCafeteria.Close();
+                        ActualizarTabla();
+                        LimpiarCampos();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ha ocurrido un error al insertar un registro");
+                        throw;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Ha ocurrido un error al insertar un registro");
-                    throw;
+                    //Something To Do Here
+                    MessageBox.Show(validador.msg);
                 }
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IDTipoDeUsuario;
                 var Descripcion = txtDescription.Text;
                 try
                 {
@@ -91,20 +124,20 @@ namespace CafeteriaUNAPEC
         //Evento Recoger Datos de la Fila
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            IDTipoDeUsuario = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtDescription.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
         //Eliminar
         private void CmdEliminar_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "")
+            if (IDTipoDeUsuario == null)
             {
                 MessageBox.Show("No haz seleccionado una fila para eliminar");
             }
             else
             {
-                var ID = txtID.Text;
+                var ID = IDTipoDeUsuario;
                 try
                 {
                     dbCafeteria.Open();
@@ -127,6 +160,11 @@ namespace CafeteriaUNAPEC
         private void LimpiarRegistro(object sender, EventArgs e)
         {
             LimpiarCampos();
+        }
+
+        private void TipoDeUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

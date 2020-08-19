@@ -141,7 +141,13 @@
     <Compile Include="VALICADIONES\Valicaciones_de_Campos.cs" />
     <Compile Include="VALICADIONES\ValidacionesEntidades\ArticuloValidacion.cs" />
     <Compile Include="VALICADIONES\ValidacionesEntidades\CafeteriaValidacion.cs" />
+    <Compile Include="VALICADIONES\ValidacionesEntidades\CampusValidacion.cs" />
     <Compile Include="VALICADIONES\ValidacionesEntidades\EmpleadoValidacion.cs" />
+    <Compile Include="VALICADIONES\ValidacionesEntidades\FacturacionArticulosValidacion.cs" />
+    <Compile Include="VALICADIONES\ValidacionesEntidades\MarcasValidacion.cs" />
+    <Compile Include="VALICADIONES\ValidacionesEntidades\ProveedoresValidacion.cs" />
+    <Compile Include="VALICADIONES\ValidacionesEntidades\TipoDeUsuarioValidacion.cs" />
+    <Compile Include="VALICADIONES\ValidacionesEntidades\UsuariosValidacion.cs" />
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>
